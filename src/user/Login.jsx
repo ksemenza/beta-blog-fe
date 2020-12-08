@@ -1,7 +1,7 @@
   
 import React, { useState } from "react";
 import Register from './Register'
-import { loginUser } from "../state-actions/userAction";
+import { loginUser } from "./action";
 import { connect } from "react-redux";
 import Loader from 'react-loader-spinner'
 
@@ -11,8 +11,6 @@ const Login = props => {
     username: "",
     password: ""
   });
-  console.log(props.match)
-
 
   const handleSubmit = e => {
     e.preventDefault();

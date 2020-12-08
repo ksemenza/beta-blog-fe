@@ -10,7 +10,7 @@ import {
     LOGOUT_REQUEST,
     LOGOUT_SUCCESS,
     LOGOUT_FAILURE
-    } from '../state-actions/userAction'
+    } from './action'
     
     const initialState = {
         id:'',
@@ -18,19 +18,6 @@ import {
         last_name:'',
         username: '',
         email: '',
-        strains: 
-        [
-           {
-           id:'',
-           name:'',
-           race:'',
-           description:'',
-           note:'',
-           rating:null,
-           tried:false,
-           user_id:null
-        }
-        ],
         isLoggedIn: false,
         isRegistered: false,
         isLoggingOut: false,
@@ -52,7 +39,7 @@ import {
     //REGISTER START
     
             case REGISTER_SUCCESS:
-                // console.log(state, action)
+                console.log(state, action)
                 return {
                     ...state,
                     isRegistered:true,
@@ -61,9 +48,7 @@ import {
                     first_name: action.payload.user.first_name, 
                     last_name: action.payload.user.last_name, 
                     username: action.payload.user.username, 
-                    email: action.payload.user.email,
-                
-                    
+                    email: action.payload.user.email,  
                     error: ' '
                 };
         
@@ -126,13 +111,6 @@ import {
                     isLoggingOut: true,
                     isLoggedIn:false,
                     isRegistered:false,
-
-                    id:null,
-                    username:'',
-                    first_name:'',
-                    last_name:'',
-                    email: '',
-                    strains:null
                             };
     //  LOGOUT
             case LOGOUT_FAILURE:

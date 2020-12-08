@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React from 'react'
-import {axiosAuth} from '../utils/axiosAuth'
+import axiosAuth from './axiosAuth'
 
 import {LOCAL_URL, USER_URL, LOGIN_URL, REGISTER_URL, DETAIL_URL, } from '../constants/endpoints.js'
 
@@ -16,9 +16,6 @@ export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
-export const CABINET_REQUEST = "CABINET_REQUEST";
-export const CABINET_SUCCESS = "CABINET_SUCCESS";
-export const CABINET_FAILURE = "CABINET_FAILURE";
 let userID
 
 //REGISTER USER START
@@ -26,7 +23,7 @@ export const registerUser = (newUser, history) => dispatch => {
     console.log(`action register`)
     dispatch({ type: REGISTER_REQUEST });
     axios
-      .post(`${LOCAL_URL}${REGISTER_URL}`, newUser)
+      .post(`http://localhost:8080/api/auth/register`, newUser)
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         history.push("/");
@@ -40,7 +37,7 @@ export const registerUser = (newUser, history) => dispatch => {
   export const loginUser = (user, history) => dispatch => {
     dispatch({ type: LOGIN_REQUEST });
     // axios.post("http://localhost:7000/api/auth/login", user )
-    axiosAuth().post(`${LOGIN_URL}`, user )
+    axiosAuth().post(`/auth/login`, user )
     
       .then(res => {
           console.log(res.data.user.password)

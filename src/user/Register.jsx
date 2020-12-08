@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {registerUser} from '../state-actions/userAction'
+import {registerUser} from './action'
 import {connect} from 'react-redux'
 import Loader from 'react-loader-spinner'
 
