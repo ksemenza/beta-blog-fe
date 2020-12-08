@@ -3,7 +3,7 @@ import {Route, Switch, NavLink} from 'react-router-dom'
 import { connect } from 'react-redux'
 import Homepage from './components/Homepage'
 import Post from './components/Post'
-import Login from './user/Login'
+import Login from './components/Login'
 import PrivateRouter from './utils/PrivateRouter'
 import './App.css';
 

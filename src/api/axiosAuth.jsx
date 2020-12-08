@@ -1,12 +1,14 @@
 import axios from 'axios'
+import { LOCAL_URL } from '../constants/endpoints'
 
-export const userAuth = () => {
+export const axiosAuth = () => {
     const token = localStorage.getItem('token');
-    const user_id = localStorage.getItem('userID')
     return axios.create({
-        baseURL: `http://localhost:8080/api/auth/${user_id}`,
+        baseURL: `${LOCAL_URL}`,
         headers: {
             Authorization: token
         }
  })
 }
+
+export default axiosAuth

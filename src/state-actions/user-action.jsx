@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
-import {axiosAuth} from './axiosAuth'
+import {axiosAuth} from '../api/axiosAuth'
+import {LOCAL_URL, REGISTER_URL, LOGIN_URL} from '../constants/endpoints'
 
 
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
@@ -22,7 +23,7 @@ export const registerUser = (newUser, history) => dispatch => {
     console.log(`action register`)
     dispatch({ type: REGISTER_REQUEST });
     axios
-      .post(`http://localhost:8080/api/auth/register`, newUser)
+      .post(`${LOCAL_URL}${REGISTER_URL}`, newUser)
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem('token',res.data.token)
@@ -37,17 +38,17 @@ export const registerUser = (newUser, history) => dispatch => {
   export const loginUser = (user, history) => dispatch => {
     dispatch({ type: LOGIN_REQUEST });
     // axios.post("http://localhost:7000/api/auth/login", user )
-    axiosAuth().post(`/auth/login`, user )
+    axiosAuth().post(`${LOGIN_URL}`, user )
     
       .then(res => {
           console.log(res.data.user.password)
         localStorage.setItem('token', res.data.token)
-        // localStorage.setItem('userID', res.data.user.id)
-        // localStorage.setItem('fname', res.data.user.first_name)
-        // localStorage.setItem('lname', res.data.user.last_name)
-        // localStorage.setItem('username', res.data.user.username)
-        // localStorage.setItem('email', res.data.user.email)
-        // localStorage.setItem('password', res.data.user.password)
+        localStorage.setItem('userID', res.data.user.id)
+        localStorage.setItem('fname', res.data.user.first_name)
+        localStorage.setItem('lname', res.data.user.last_name)
+        localStorage.setItem('username', res.data.user.username)
+        localStorage.setItem('email', res.data.user.email)
+        localStorage.setItem('password', res.data.user.password)
 
         dispatch({type:LOGIN_SUCCESS, payload: res.data})  
         history.push('/homepage')
@@ -70,7 +71,6 @@ export const registerUser = (newUser, history) => dispatch => {
 
     //CABINET USER START
 
-    console.log(userID)
 
     /*
     export const cabinetUser = (cabinet, history) => dispatch => {

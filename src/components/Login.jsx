@@ -1,7 +1,7 @@
   
 import React, { useState } from "react";
 import Register from './Register'
-import { loginUser } from "./action";
+import { loginUser } from "../state-actions/user-action";
 import { connect } from "react-redux";
 import Loader from 'react-loader-spinner'
 
