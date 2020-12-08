@@ -23,7 +23,6 @@ import {
         isLoggingOut: false,
         isLoggingIn:false,
         isLoggedOut:false,
-        isLoggingOut:false
     }
     
     const userReducer =  (state = initialState, action) => {
@@ -34,6 +33,7 @@ import {
                     ...state,
                     isRegistered:false,
                     isRegistering:true,
+                    isLoggingIn:false,
                     isLoggedIn:false
                                 };
     //REGISTER START
@@ -43,7 +43,7 @@ import {
                 return {
                     ...state,
                     isRegistered:true,
-                    isRegistering:false,
+                    isLoggingIn:false,
                     id: action.payload.user.id,
                     first_name: action.payload.user.first_name, 
                     last_name: action.payload.user.last_name, 
@@ -57,6 +57,7 @@ import {
                 return {
                     ...state,
                     isRegistered: false,
+                    isLoggingIn:false,
                     err: 'REGISTER FAILURE'
                     
                 };
