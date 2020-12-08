@@ -1,13 +1,122 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 62.5%;
+  padding: 1.5rem;
+}
+
+h1 {
+  font-size: 4.8rem;
+}
+
+h2{
+  font-size: 3.8rem;
+}
+
+h3{
+  font-size: 3.2rem;
+}
+
+h4{
+  font-size: 2.8rem;
+}
+
+h5{
+  font-size: 2.4rem;
+}
+
+h6{
+  font-size: 2.1rem;
+}
+
+.nav-link {
+  padding: 2.6rem;
+  font-size: 2.1rem;
+}
+
+button {
+  margin: 1.5rem;
+  padding: 1rem 2.8rem 1rem 2.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+}
+
+input {
+  padding: 0.5rem;
+  margin: 1.5rem;
+}
+
+/* 900px Universal MEDIA SPECS */
+@media (max-width:900px){
+  *{
+    font-size: 1.4rem;
+  }
+  h1{
+    font-size: 3.4rem;
+  }
+  h2{
+    font-size: 3rem;
+  }
+  
+  h3{
+    font-size: 2.6rem;
+  }
+  
+  h4{
+    font-size: 2.4rem;
+  }
+  
+  h5{
+    font-size: 2.1rem;
+  }
+  
+  h6{
+    font-size: 1.8rem;
+  }
+}
+/* 600px Universal MEDIA SPECS */
+@media (max-width:600px){
+  *{
+    font-size: 1.2rem;
+  }
+  h1{
+    font-size: 2.2rem;
+  }
+  h2{
+    font-size: 2rem;
+  }
+  
+  h3{
+    font-size: 1.8rem;
+  }
+  
+  h4{
+    font-size: 1.6rem;
+  }
+  
+  h5{
+    font-size: 1.4rem;
+  }
+  
+  h6{
+    font-size: 1.3rem;
+  }
 }

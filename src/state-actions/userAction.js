@@ -40,7 +40,7 @@ export const registerUser = (newUser, history) => dispatch => {
   export const loginUser = (user, history) => dispatch => {
     dispatch({ type: LOGIN_REQUEST });
     // axios.post("http://localhost:7000/api/auth/login", user )
-    axiosAuth().post("/auth/login", user )
+    axiosAuth().post(`${LOGIN_URL}`, user )
     
       .then(res => {
           console.log(res.data.user.password)
