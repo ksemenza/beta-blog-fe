@@ -5,7 +5,7 @@ import { loginUser } from "./action";
 import { connect } from "react-redux";
 import Loader from 'react-loader-spinner'
 
-const Login = props => {
+const Login = (props) => {
   const[account, setAccount] = useState(false)
   const [user, setUser] = useState({
     username: "",

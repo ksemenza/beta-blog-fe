@@ -6,17 +6,20 @@ import App from './App';
 import {Provider} from  'react-redux'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 import userReducer from './user/reducer'
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(userReducer, applyMiddleware(thunk))
+const store = createStore(userReducer, applyMiddleware(thunk, logger))
 
 ReactDOM.render(
-  <BrowserRouter>
+
   <Provider store={store}>
+      <BrowserRouter>
+
     <App />
-    </Provider>
-  </BrowserRouter>,
+    </BrowserRouter>
+    </Provider>,
   document.getElementById('root')
 );
 

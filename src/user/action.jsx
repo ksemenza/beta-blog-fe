@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React from 'react'
-import axiosAuth from './axiosAuth'
+import {axiosAuth} from './axiosAuth'
 
-import {LOCAL_URL, USER_URL, LOGIN_URL, REGISTER_URL, DETAIL_URL, } from '../constants/endpoints.js'
 
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
@@ -26,6 +25,7 @@ export const registerUser = (newUser, history) => dispatch => {
       .post(`http://localhost:8080/api/auth/register`, newUser)
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+        localStorage.setItem('token',res.data.token)
         history.push("/");
       })
       .catch(err => {
@@ -42,12 +42,12 @@ export const registerUser = (newUser, history) => dispatch => {
       .then(res => {
           console.log(res.data.user.password)
         localStorage.setItem('token', res.data.token)
-        localStorage.setItem('userID', res.data.user.id)
-        localStorage.setItem('fname', res.data.user.first_name)
-        localStorage.setItem('lname', res.data.user.last_name)
-        localStorage.setItem('username', res.data.user.username)
-        localStorage.setItem('email', res.data.user.email)
-        localStorage.setItem('password', res.data.user.password)
+        // localStorage.setItem('userID', res.data.user.id)
+        // localStorage.setItem('fname', res.data.user.first_name)
+        // localStorage.setItem('lname', res.data.user.last_name)
+        // localStorage.setItem('username', res.data.user.username)
+        // localStorage.setItem('email', res.data.user.email)
+        // localStorage.setItem('password', res.data.user.password)
 
         dispatch({type:LOGIN_SUCCESS, payload: res.data})  
         history.push('/homepage')

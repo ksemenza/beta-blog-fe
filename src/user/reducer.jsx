@@ -75,7 +75,8 @@ import {
                     last_name: action.payload.user.last_name, 
                     username: action.payload.user.username, 
                     email: action.payload.user.email,  
-                    error: ' '
+                    error: 'REGISTER SUCCESSFUL'
+
                 };
         
             case REGISTER_FAILURE:
@@ -83,7 +84,6 @@ import {
                 return {
                     ...state,
                     isRegistered: false,
-                    isLoggingIn:false,
                     err: 'REGISTER FAILURE'
                     
                 };
@@ -93,7 +93,6 @@ import {
                 return {
                     ...state,
                     isLoggingIn: true,
-                    isRegistered:true
                 };
            
             case LOGIN_SUCCESS:
@@ -103,9 +102,6 @@ import {
                     isLoggedIn: true,
                     isRegistered:true,
                     isLoggingIn:false,
-                    isLoggingOut:false,
-                    isLoggedOut:false,
-                    isRegistering:false,
                     id: action.payload.user.id,
                     first_name: action.payload.user.first_name, 
                     last_name: action.payload.user.last_name, 
@@ -118,6 +114,8 @@ import {
                     // console.log(state, action)
                     return {
                         ...state,
+                        isLoggedIn: false,
+                        isLoggingIn: false,
                         error: 'Login User Failure'
                     };
     //LOGOUT START
@@ -148,8 +146,11 @@ import {
                     isLoggedOut:false,
                     isLoggedIn: true,
                     error:'Logout Fail'
-                };
+                }
+                default:
+                    return state;
             }
+            
             }
             export default userReducer
                 
