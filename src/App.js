@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <PrivateRouter path='/homepage' component={Homepage} />
-        <Route path exact = '/' component={Login}/>
+        <PrivateRouter path='/homepage' component={Homepage} exact/>
+        <Route path  = '/' component={Login} exact/>
       </Switch>
       <NavLink to='/homepage'>Home</NavLink>
 
