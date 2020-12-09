@@ -46,9 +46,9 @@ const Post = () => {
                 {userPosts.length > 0 ? 
                 <div className='post-list-wrap'>
 
-                    <div>
+                    <div >
                         {userPosts.map(post => (
-                            <div>
+                            <div key={post.id}>
                                 <h4>{post.title}</h4>
                         <p>by: {username} - {fname} {lname}</p>
                         <p>{post.content}</p>
@@ -56,20 +56,7 @@ const Post = () => {
                         ))}
                     </div>
 
-                    <h4 className='post-text-label'>
-                        Title
-                    </h4>
-                    <p className='post-text-p'>
-                        {userPosts.title}
-                    </p>
-                <p>Author: {username}</p>
-                    <h5 className='post-text-label'>
-                        content
-                    </h5>
-                    <p className='post-text-p'>
-                        {userPosts.content}
-                    </p>
-
+                  
                 </div> : <h5>No Posts Available</h5> } </div>
                         </div> 
 }
