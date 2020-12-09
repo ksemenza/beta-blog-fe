@@ -5,6 +5,9 @@ import { axiosAuth } from '../api/axiosAuth'
 import PostModel from './PostModel'
 import PostAdd from './PostAdd'
 import {addPost} from '../state-actions/post-action'
+import { Link } from 'react-router-dom'
+import {LOCAL_URL, USER_URL, POST_URL, DETAILS_URL} from '../constants/endpoints'
+import PostSingle from './PostSingle'
 
 const Post = () => {
 
@@ -25,7 +28,7 @@ const Post = () => {
                 axiosAuth()
         .get(`/auth/${user_id}/details`)
         .then((res) => {
-            console.log(res.data)
+            console.log(res.data.posts)
             setUserPosts(res.data.posts)
             setUsername(res.data.username)
         })
@@ -48,11 +51,14 @@ const Post = () => {
 
                     <div >
                         {userPosts.map(post => (
-                            <div key={post.id}>
+                            <article key={post.id}>
                                 <h4>{post.title}</h4>
                         <p>by: {username} - {fname} {lname}</p>
                         <p>{post.content}</p>
-                            </div>
+                        <p>{post.topic}</p>
+
+                        <Link to={`/post/${post.id}`}>View Post</Link>
+                            </article>
                         ))}
                     </div>
 
