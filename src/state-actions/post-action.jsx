@@ -41,6 +41,7 @@ export const addPost = (post) => dispatch => {
         console.log(post)
         console.log(`add post 43 ${res.data.posts} `)
         dispatch({type:POST_SUC, payload:res.data.posts})
+        
     })
     .catch(err => {
         dispatch({type:POST_FAIL, payload:err})

@@ -6,7 +6,8 @@ import {connect} from 'react-redux'
 const PostAdd = props => {
 
     const USER_ID = localStorage.getItem('user_id')
-    console.log(USER_ID)
+
+    const history = useHistory()
 
     const[newPost, setNewPost] = useState(
         {
@@ -21,15 +22,16 @@ const PostAdd = props => {
     
     // Handle add new post submit
     const handleSubmitPost = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         props.addPost(newPost)
-
-        console.log(newPost)
-    }
+        setTimeout(() => {
+            e.target.reset()
+        }, 1500)
+        }
 
     const handleChangePost = e => {
-        // console.log(e.target.value, e.target.name)
         setNewPost({...newPost, [e.target.name]: e.target.value})
+
         }
 
         return(

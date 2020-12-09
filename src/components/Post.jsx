@@ -34,6 +34,16 @@ const Post = () => {
                 <PostAdd/>
                 {userPosts.length > 0 ? 
                 <div className='post-list-wrap'>
+
+                    <div>
+                        {userPosts.map(post => (
+                            <div>
+                                <h4>Title</h4>
+                        <p>{post.title}</p>
+                            </div>
+                        ))}
+                    </div>
+
                     <h4 className='post-text-label'>
                         Title
                     </h4>
@@ -47,7 +57,7 @@ const Post = () => {
                     <p className='post-text-p'>
                         {userPosts.content}
                     </p>
-
+))}
                 </div> : <h5>No Posts Available</h5> }
             </div>
 
