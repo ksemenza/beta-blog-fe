@@ -24,6 +24,7 @@ const PostAdd = props => {
     const handleSubmitPost = (e) => {
         // e.preventDefault()
         props.addPost(newPost)
+        props.toggleAddPost()
         setTimeout(() => {
             e.target.reset()
         }, 1500)
