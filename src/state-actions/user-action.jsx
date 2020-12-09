@@ -42,7 +42,7 @@ export const registerUser = (newUser, history) => dispatch => {
       .then(res => {
           console.log(res.data.user.password)
         localStorage.setItem('token', res.data.token)
-        localStorage.setItem('userID', res.data.user.id)
+        localStorage.setItem('user_id', res.data.user.id)
         localStorage.setItem('fname', res.data.user.first_name)
         localStorage.setItem('lname', res.data.user.last_name)
         localStorage.setItem('username', res.data.user.username)

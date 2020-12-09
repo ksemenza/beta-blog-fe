@@ -1,31 +1,49 @@
-import axios from 'axios'
-import {LOCAL_URL, USER_URL, POST_URL, DETAILS_URL} from '../constants/endpoints'
+import {
+    POST_REQ,
+    POST_SUC,
+    POST_FAIL
+} from '../state-actions/post-action'
 
-export const POST_REQ = "POST_REQ";
-export const POST_SUC = "POST_SUC";
-export const POST_FAIL = "POST_FAIL"; n 
+const USER_ID = localStorage.getItem('user_id');
 
-//Get /api/post
-export const getPosts = (posts, history) => dispatch => {
-    dispatch({type:POST_REQ});
-    axios.get(`${LOCAL_URL}${POST_URL}`, posts)
-    .then(res => {
-        dispatch({type: POST_SUC, payload:res.data})
-        history.push('/post');
-    })
-    .catch(err => {
-        dispatch({type:POST_FAIL, payload:err.res});
-    });
+const initialState = {
+    id:'',
+    title:'',
+    content:'',
+    topic:'',
+    user_id:USER_ID,
+    isLoadingPosts:false,
+    hasLoadedPosts:false,
 }
-//Get /api/post
-export const getPostDetails = (posts, history) => dispatch => {
-    dispatch({type:POST_REQ});
-    axios.get(`${LOCAL_URL}${POST_URL}`, posts)
-    .then(res => {
-        dispatch({type: POST_SUC, payload:res.data})
-        history.push('/post');
-    })
-    .catch(err => {
-        dispatch({type:POST_FAIL, payload:err.res});
-    });
-}
+
+const postReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case POST_REQ:
+            console.log(state, action, 'post req 20 ')
+            return{
+                ...state,
+                isLoadingPosts:true
+            }
+            case POST_SUC:
+                console.log(state, action, 'post suc 28')
+                return {
+                    ...state,
+                    isLoadingPosts:false,
+                    hasLoadedPosts:true,
+                    id:action.payload.posts.id,
+                    title:action.payload.posts.title,
+                    content:action.payload.posts.content,
+                    topic:action.payload.posts.topic,
+                }
+            case POST_FAIL:
+                console.log(state, action, 'post fail 39')
+                return {
+                    ...state,
+                    error:'Failure to Load User Posts 42'
+                }
+                default:
+                    return state;
+            }
+    }
+    
+export default postReducer
