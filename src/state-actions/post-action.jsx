@@ -9,12 +9,10 @@ export const POST_FAIL = "POST_FAIL";
 const USER_ID = localStorage.getItem('user_id');
 const POST_ID = localStorage.getItem('post_id');
 
-console.log(user_id)
-
 //GET Admin Post All
 export const getPostsAll = (posts, history) => dispatch => {
     dispatch({type:POST_REQ});
-    a.get(`${LOCAL_URL}${POST_URL}`, posts)
+    axiosAuth().get(`${LOCAL_URL}${POST_URL}`, posts)
     .then(res => {
         dispatch({type: POST_SUC, payload:res.data})
     })
@@ -25,7 +23,7 @@ export const getPostsAll = (posts, history) => dispatch => {
 //GET User's Post
 export const getPostDetails = (posts) => dispatch => {
     dispatch({type:POST_REQ});
-    axios.get(`${USER_URL}${USER_ID}${DETAILS_URL}`, posts)
+    axiosAuth().get(`${USER_URL}${USER_ID}${DETAILS_URL}`, posts)
     .then(res => {
         dispatch({type: POST_SUC, payload:res.data})
     })
@@ -35,12 +33,14 @@ export const getPostDetails = (posts) => dispatch => {
 }
 
 //ADD User's Post
+
 export const addPost = (post) => dispatch => {
     dispatch({ type: POST_REQ })
     axiosAuth().post(`${POST_URL}`, post)
     .then(res => {
-        console.log(`add post 43 ${res.data} `)
-        dispatch({type:POST_SUC, payload:res.data})
+        console.log(post)
+        console.log(`add post 43 ${res.data.posts} `)
+        dispatch({type:POST_SUC, payload:res.data.posts})
     })
     .catch(err => {
         dispatch({type:POST_FAIL, payload:err})

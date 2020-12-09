@@ -1,3 +1,108 @@
-import React, {useContext} from 'react'
+import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import 
+import {addPost} from '../state-actions/post-action'
+import {connect} from 'react-redux'
+
+const PostAdd = props => {
+
+    const USER_ID = localStorage.getItem('user_id')
+    console.log(USER_ID)
+
+    const[newPost, setNewPost] = useState(
+        {
+            title:'',
+            content:'',
+            topic:'',
+            user_id:USER_ID
+        }
+    )
+
+
+    
+    // Handle add new post submit
+    const handleSubmitPost = (e) => {
+        e.preventDefault()
+        props.addPost(newPost)
+
+        console.log(newPost)
+    }
+
+    const handleChangePost = e => {
+        // console.log(e.target.value, e.target.name)
+        setNewPost({...newPost, [e.target.name]: e.target.value})
+        }
+
+        return(
+            <div className='post-add-cta'>
+                <div className='post-add-form-cta'>
+                    <form onSubmit={handleSubmitPost}>
+                      
+                        <div className='input-label-wrap'>
+                            <label htmlFor='title'>
+                                Title
+                            </label>
+                            <input
+                            required
+                            className='post-input-title'
+                            type='text'
+                            name='title'
+                            id='title'
+                            placeholder='Title'
+                            onChange={handleChangePost}
+                            value={newPost.title}
+                            />                  
+                        </div>
+
+                        <div className='input-label-wrap'>
+                            <label htmlFor='topic'>
+                                topics
+                            </label>
+                            <input
+                            required
+                            className='post-input'
+                            required
+                            type='text'
+                            name='topic'
+                            id='topic'
+                            placeholder='Post Entry'
+                            onChange={handleChangePost}
+                            value={newPost.topic}
+                            />                  
+                        </div>
+                      
+                        <div className='input-label-wrap'>
+                            <label htmlFor='content'>
+                                Content
+                            </label>
+                            <textarea
+                            required
+                            className='post-textarea'
+                            required
+                            type='textarea'
+                            name='content'
+                            id='content'
+                            placeholder='Post Entry'
+                            onChange={handleChangePost}
+                            value={newPost.content}
+                            />                  
+                        </div>
+                      
+                 
+                        <button type='submit'>Submit</button>
+
+                    </form>
+                </div>
+
+            </div>
+        )
+}
+
+
+const mapStateToProps = state => {
+    return state;
+  };
+  
+  export default connect(
+    mapStateToProps,
+    { addPost }
+  )(PostAdd);
