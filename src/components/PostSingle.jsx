@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostSingle = (props) => {
 
-console.log(props)
+console.log(props.location.pathname)
 
     return (
         <div className='post-view-cta'>
