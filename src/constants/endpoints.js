@@ -9,3 +9,5 @@ export const COMMENT_URL = '/comment'
 export const NOTIFICATION_URL = '/notification'
 
 export const DETAILS_URL = '/details'
+
+export const HOME_PAGE = '/homepage'

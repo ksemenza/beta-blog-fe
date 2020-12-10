@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Header from './Header'
 import Footer from './Footer'
+import '../assets/css/home.css'
+import HeaderNav from './HeaderNav'
 
 
 const Homepage = props => {
@@ -9,9 +11,11 @@ const Homepage = props => {
 
     return (
         <div className='home-cta'>
-            <Header/>
+            <div className='title-nav-wrap'>
+            <Header />
+                </div>
             <div className='home-wrap'>
-                <h2 className='home-header'>Welcome {fname}</h2>
+                <h4 className='home-header'>Welcome {fname}</h4>
             </div>
 
             <Footer/>

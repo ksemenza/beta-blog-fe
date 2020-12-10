@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import {axiosAuth} from '../api/axiosAuth'
-import {LOCAL_URL, REGISTER_URL, LOGIN_URL} from '../constants/endpoints'
+import {LOCAL_URL, REGISTER_URL, LOGIN_URL, HOME_PAGE} from '../constants/endpoints'
 
 
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
@@ -50,7 +50,7 @@ export const registerUser = (newUser, history) => dispatch => {
         localStorage.setItem('password', res.data.user.password)
 
         dispatch({type:LOGIN_SUCCESS, payload: res.data})  
-        history.push('/homepage')
+        history.push(HOME_PAGE)
       })
       .catch(err => {
         dispatch({ type: LOGIN_FAILURE, payload: err.res });

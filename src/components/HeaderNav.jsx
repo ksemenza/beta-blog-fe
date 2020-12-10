@@ -5,14 +5,10 @@ import { logoutUser } from '../state-actions/user-action'
 import '../assets/css/header.css'
 
 
-const Header = props => {
-
-
+const HeaderNav = props => {
     return (
         <div className='header-cta'>
-          
-            <h2 className='header-title'>Beta Blog What's On Your Nog</h2>
-             <div className='nav-logout-wrap'>
+            <div className='nav-logout-wrap'>
                   <Link to='/'>
                 <button
                 className='header-btn-logout'
@@ -29,9 +25,7 @@ const Header = props => {
             
           
             </div>
-            </div>
-        
-    
+        </div>
     )
 }
 
@@ -41,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {logoutUser})(Header)
+export default connect(mapStateToProps, {logoutUser})(HeaderNav)

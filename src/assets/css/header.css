@@ -1,0 +1,49 @@
+.header-title-cta {
+    position: absolute;
+}
+
+.header-cta {
+    position: absolute;
+
+}
+
+.header-link-nav {
+    margin: 3rem 4rem 4rem 3rem;
+    text-decoration: none;
+    font-size: 2rem;
+
+}
+
+.nav-link-wrap {
+        position: absolute;
+        margin-right: 15rem;
+
+}
+
+.nav-logout-wrap{
+    display: flex;
+    /* flex-direction: row-reverse; */
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    min-width: 100vw;
+    
+}
+
+.header-btn-logout{
+      margin-left: 60rem;
+      padding: 0.25rem 1rem 0.25rem 1rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      border-radius: 0.5rem;
+   
+}
+
+h2 {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}

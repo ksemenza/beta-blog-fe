@@ -1,0 +1,21 @@
+.home-cta {
+    min-height: fit-content;
+    min-width: fit-content;
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+}
+.home-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 15rem;
+    min-width: 100vw;
+    align-items: center;
+}
+
+.title-nav-wrap {
+    display: flex;
+    flex-direction: column;
+    
+}
