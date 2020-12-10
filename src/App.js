@@ -19,7 +19,7 @@ function App(props) {
         <PrivateRouter exact path='/post' component={Post} exact/>
         <PrivateRouter exact path='/post/:id/details' component={Comment} exact/>
         <PrivateRouter exact path='/post/:id' component={PostSingle} exact/>
-      {/* <NavLink to='/homepage'>Home</NavLink> */}
+      <NavLink to='/homepage'>Home</NavLink>
 
     </div>
   );

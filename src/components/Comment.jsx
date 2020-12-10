@@ -67,6 +67,7 @@ const Comment = props => {
                                         {postsComment.map((comment, key) => (
                                             <div>
                                                 <article>
+                                                    <h6> {comment.author} </h6>
                                                     <h4> {comment.comment} </h4>
                                                 </article>
                                             </div>

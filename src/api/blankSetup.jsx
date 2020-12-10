@@ -18,4 +18,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {logoutUser})(Blank)
+export default connect(mapStateToProps)(Blank)

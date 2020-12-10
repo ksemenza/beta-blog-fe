@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Header from './Header'
 import Footer from './Footer'
 import '../assets/css/home.css'
-import HeaderNav from './HeaderNav'
+import MainPage from './MainPage'
 
 
 const Homepage = props => {
@@ -17,7 +17,7 @@ const Homepage = props => {
             <div className='home-wrap'>
                 <h4 className='home-header'>Welcome {fname}</h4>
             </div>
-
+<MainPage/>
             <Footer/>
 
         </div>
