@@ -7,7 +7,8 @@ import {
 const USER_ID = localStorage.getItem('user_id');
 
 const initialState = {
-    id:'',
+    id: '',
+    author:'',
     title:'',
     content:'',
     topic:'',
@@ -31,6 +32,7 @@ const postReducer = (state = initialState, action) => {
                     isLoadingPosts:false,
                     hasLoadedPosts:true,
                     id:action.payload.posts.id,
+                    author:action.payload.posts.author,
                     title:action.payload.posts.title,
                     content:action.payload.posts.content,
                     topic:action.payload.posts.topic,
