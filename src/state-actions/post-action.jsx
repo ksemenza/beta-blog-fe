@@ -40,7 +40,8 @@ export const addPost = (post) => dispatch => {
     .then(res => {
         console.log(post)
         console.log(`add post 43 ${res.data.posts} `)
-        dispatch({type:POST_SUC, payload:res.data.posts})
+        dispatch({ type: POST_SUC, payload: res.data.posts })
+        window.location.reload()
         
     })
     .catch(err => {
