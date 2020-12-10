@@ -63,7 +63,7 @@ const Post = props => {
 
                         <NavLink to={`/post/${post.id}`}>View Post</NavLink>
                             </article>
-                        
+                        <NavLink to={`/comment`}>Comment</NavLink>
                                 </div>
                         ))}
                     </div>

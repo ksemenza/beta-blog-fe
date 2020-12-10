@@ -1,4 +1,5 @@
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+import {NavLink} from 'react-router-dom'
 import {axiosAuth} from '../api/axiosAuth'
 
 const PostSingle = (props) => {
@@ -23,8 +24,9 @@ const PostSingle = (props) => {
 
     return (
         <div className='post-view-cta'>
-            <h2>Post Single</h2>
-            {post.title}
+            <h2>{post.title}</h2>
+            <p>{post.content}</p> 
+            <NavLink to='/post'>back</NavLink>
         
         </div>
     )
