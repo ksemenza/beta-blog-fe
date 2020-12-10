@@ -3,13 +3,11 @@ import {connect} from 'react-redux'
 
 const CommentCard = props => {
 
-    console.log(props.key)
     return (
         <div className='comment-view-cta'>
-            <h2>{props.author}</h2>
-            <p>author {props.comment} </p>
-            
-        
+            <h6>author {props.author}</h6>
+            <p> {props.comment} </p>
+                
         </div>
     )
 }

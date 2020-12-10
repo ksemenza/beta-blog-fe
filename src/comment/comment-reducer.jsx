@@ -4,8 +4,8 @@ import {
     COMMENT_FAIL
 } from './comment-action'
 
-const POST_ID = localStorage.getItem('post_Id')
-const USERNAME = localStorage.getItem('username')
+import { POST_ID, USERNAME } from '../constants/local_storage'
+
 
 const initialState = {
     id: '',

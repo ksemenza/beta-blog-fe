@@ -1,13 +1,12 @@
 import axios from 'axios'
 import axiosAuth from '../api/axiosAuth';
-import {LOCAL_URL, USER_URL, COMMENT_URL, DETAILS_URL} from '../constants/endpoints'
+import { LOCAL_URL, USER_URL, COMMENT_URL, DETAILS_URL } from '../constants/endpoints'
+import { USER_ID, COMMENT_ID } from '../constants/local_storage'
 
 export const COMMENT_REQ = "COMMENT_REQ";
 export const COMMENT_SUC = "COMMENT_SUC";
 export const COMMENT_FAIL = "COMMENT_FAIL"; 
 
-const USER_ID = localStorage.getItem('user_id');
-const COMMENT_ID = localStorage.getItem('comment_id');
 
 //GET Admin Comment All
 export const getCommentsAll = (comments, history) => dispatch => {

@@ -6,9 +6,8 @@ import { NavLink } from 'react-router-dom'
 import { USER_URL, DETAILS_URL, POST_URL } from '../constants/endpoints'
 import Comment from '../comment/Comment'
 import '../assets/css/post.css'
-import { POST_FAIL } from './post-action'
 import PostCard from './PostCard'
-import CommentCard from '../comment/CommentCard'
+import { USER_ID, F_NAME } from '../constants/local_storage'
 
 
 const Post = props => {
@@ -22,11 +21,6 @@ const Post = props => {
     // variable assigned to userPosts' array
     let postList
 
-    // local storage assigned in user action
-    const user_id = localStorage.getItem('user_id')
-    const fname = localStorage.getItem('fname')
-    const lname = localStorage.getItem('lname')
-    const username = localStorage.getItem('username')
 
     const handleClick = (e) => {
         setAddPost(!addPost)
@@ -34,7 +28,7 @@ const Post = props => {
     
     useEffect(() => {
                 axiosAuth()
-        .get(`${USER_URL}/${user_id}${DETAILS_URL}`)
+        .get(`${USER_URL}/${USER_ID}${DETAILS_URL}`)
   
                     .then((res) => {
             postList = res.data.posts
@@ -43,7 +37,7 @@ const Post = props => {
         .catch((err) => {
             console.log(`Get User Post Error`, err)
         })
-    }, [user_id])
+    }, [USER_ID])
   
 
 
@@ -52,7 +46,7 @@ const Post = props => {
             <button onClick={handleClick}> {!addPost ? 'New Post' : 'Cancel'} </button>
 {addPost ? <PostAdd toggleAddPost={handleClick}/> :
 <div>
-            <h4> {fname}'s Posts</h4>
+            <h4> {F_NAME}'s Posts</h4>
             <div className='post-list-cta'>
 
               
@@ -73,7 +67,7 @@ const Post = props => {
                                 
                                 <div className='post-comment-wrap'>
                                      
-                        <NavLink className='post-link' key={user_id} to={`/post/${post.id}`}>View Post</NavLink>
+                        <NavLink className='post-link' key={USER_ID} to={`/post/${post.id}`}>View Post</NavLink>
                            
                         <NavLink className='post-link' key={post.id} to={`/post/${post.id}/details`}>Comment</NavLink>
                                 </div>

@@ -7,6 +7,8 @@ import '../assets/css/comment.css'
 import '../assets/css/post.css'
 import CommentAdd from './CommentAdd'
 import CommentCard from '../comment/CommentCard'
+import { USER_ID } from '../constants/local_storage'
+
 
 
 const Comment = props => {

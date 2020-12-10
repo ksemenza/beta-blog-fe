@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 const PostCard = props => {
 
-    console.log(props.key)
+    console.log(props)
     return (
         <div className='post-view-cta'>
             <h2>{props.title}</h2>
