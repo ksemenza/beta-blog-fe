@@ -61,7 +61,7 @@ const Post = props => {
                     <div >
                         {userPosts.map(post => (
                       <div>
-                            <article >
+                            <article key={post.id}>
                                 <h4>{post.title}</h4>
                         <p>by: {username} - {fname} {lname}</p>
                         <p>{post.content}</p>

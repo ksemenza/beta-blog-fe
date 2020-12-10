@@ -20,6 +20,11 @@ const Comment = props => {
     // variable assigned to postsComment's array
     let commentList
 
+       const user_id = localStorage.getItem('user_id')
+    const fname = localStorage.getItem('fname')
+    const lname = localStorage.getItem('lname')
+    const username = localStorage.getItem('username')
+
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -59,10 +64,10 @@ const Comment = props => {
                             postsComment.length > 0 ?
                                 <div className='comment-list-wrap'>
                                     <div>
-                                        {postsComment.map(comment => (
+                                        {postsComment.map((comment, key) => (
                                             <div>
                                                 <article>
-                                                    <h4> Comment List </h4>
+                                                    <h4> {comment.comment} </h4>
                                                 </article>
                                             </div>
                                         ))}
