@@ -5,11 +5,11 @@ import { axiosAuth } from '../api/axiosAuth'
 import PostModel from './PostModel'
 import PostAdd from './PostAdd'
 import {addPost} from '../state-actions/post-action'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import {LOCAL_URL, USER_URL, POST_URL, DETAILS_URL} from '../constants/endpoints'
 import PostSingle from './PostSingle'
 
-const Post = () => {
+const Post = props => {
 
     const [userPosts, setUserPosts] = useState([])
     const [username, setUsername] = useState('')
@@ -27,6 +27,7 @@ const Post = () => {
     useEffect(() => {
                 axiosAuth()
         .get(`/auth/${user_id}/details`)
+  
         .then((res) => {
             console.log(res.data.posts)
             setUserPosts(res.data.posts)
@@ -36,6 +37,7 @@ const Post = () => {
             console.log(`Get User Post Error`, err)
         })
     },[user_id])
+
 
     return (
         <div className='post-cta'>
@@ -51,17 +53,20 @@ const Post = () => {
 
                     <div >
                         {userPosts.map(post => (
-                            <article key={post.id}>
+                      <div>
+                            <article>
                                 <h4>{post.title}</h4>
                         <p>by: {username} - {fname} {lname}</p>
                         <p>{post.content}</p>
-                        <p>{post.topic}</p>
+                                    <p>{post.topic}</p>
+                                 
 
-                        <Link to={`/post/${post.id}`}>View Post</Link>
+                        <NavLink to={`/post/${post.id}`}>View Post</NavLink>
                             </article>
+                        
+                                </div>
                         ))}
                     </div>
-
                   
                 </div> : <h5>No Posts Available</h5> } </div>
                         </div> 

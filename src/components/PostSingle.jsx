@@ -1,7 +1,8 @@
 import React from 'react'
 
-const PostSingle = () => {
+const PostSingle = (props) => {
 
+console.log(props)
 
     return (
         <div className='post-view-cta'>
