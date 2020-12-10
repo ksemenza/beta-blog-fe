@@ -6,11 +6,13 @@ import {connect} from 'react-redux'
 const PostAdd = props => {
 
     const USER_ID = localStorage.getItem('user_id')
+    const USERNAME = localStorage.getItem('username')
 
     const history = useHistory()
 
     const[newPost, setNewPost] = useState(
         {
+            author:USERNAME,
             title:'',
             content:'',
             topic:'',
