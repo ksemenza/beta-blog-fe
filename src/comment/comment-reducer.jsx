@@ -2,9 +2,10 @@ import {
     COMMENT_REQ,
     COMMENT_SUC,
     COMMENT_FAIL
-} from '../state-actions/comment-action'
+} from './comment-action'
 
-// const USER_ID = localStorage.getItem('user_id');
+const POST_ID = localStorage.getItem('post_Id')
+const USERNAME = localStorage.getItem('username')
 
 const initialState = {
     id: '',
@@ -30,7 +31,7 @@ const commentReducer = (state = initialState, action) => {
                     hasLoadedComments:true,
                     id:action.payload.comments.id,
                     author:action.payload.comments.author,
-                    comment:action.payload.comments.title,
+                    comment:action.payload.comments.comment,
            
                 }
             case COMMENT_FAIL:

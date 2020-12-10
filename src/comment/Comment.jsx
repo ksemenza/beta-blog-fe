@@ -6,6 +6,7 @@ import { USER_URL, DETAILS_URL, COMMENT_URL, POST_URL } from '../constants/endpo
 import '../assets/css/comment.css'
 import '../assets/css/post.css'
 import CommentAdd from './CommentAdd'
+import CommentCard from '../comment/CommentCard'
 
 
 const Comment = props => {
@@ -20,6 +21,8 @@ const Comment = props => {
     // variable assigned to postsComment's array
     let commentList
 
+  localStorage.setItem('post_id',props.match.params.id)    
+
        const user_id = localStorage.getItem('user_id')
     const fname = localStorage.getItem('fname')
     const lname = localStorage.getItem('lname')
@@ -27,7 +30,6 @@ const Comment = props => {
 
 
     const handleClick = (e) => {
-        e.preventDefault()
         setAddComment(!addComment)
     }
         
@@ -45,7 +47,7 @@ const Comment = props => {
         })
     },[])
     
-    console.log(postsComment)
+    // console.log(postsComment)
 
     return (
         <div className='comment-cta'>
@@ -64,12 +66,14 @@ const Comment = props => {
                             postsComment.length > 0 ?
                                 <div className='comment-list-wrap'>
                                     <div>
-                                        {postsComment.map((comment, key) => (
+                                        {postsComment.map(comment => (
                                             <div>
-                                                <article>
-                                                    <h6> {comment.author} </h6>
-                                                    <h4> {comment.comment} </h4>
-                                                </article>
+                                                
+                                                <CommentCard 
+                                                    key={comment.id}
+                                                    comment={comment.comment}
+                                                    author={comment.author}
+                                                />
                                             </div>
                                         ))}
                                     </div>

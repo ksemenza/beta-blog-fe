@@ -4,9 +4,11 @@ import { axiosAuth } from '../api/axiosAuth'
 import PostAdd from './PostAdd'
 import { NavLink } from 'react-router-dom'
 import { USER_URL, DETAILS_URL, POST_URL } from '../constants/endpoints'
-import Comment from './Comment'
+import Comment from '../comment/Comment'
 import '../assets/css/post.css'
-import { POST_FAIL } from '../state-actions/post-action'
+import { POST_FAIL } from './post-action'
+import PostCard from './PostCard'
+import CommentCard from '../comment/CommentCard'
 
 
 const Post = props => {
@@ -36,7 +38,6 @@ const Post = props => {
   
                     .then((res) => {
             postList = res.data.posts
-            console.log(postList)
             setUserPosts(postList)
         })
         .catch((err) => {
@@ -59,21 +60,24 @@ const Post = props => {
                 <div className='post-list-wrap'>
 
                     <div >
-                        {userPosts.map(post => (
-                      <div>
-                            <article key={post.id}>
-                                    <h4>{post.title}</h4>
-                                    <h6> author: {post.author} </h6>
-                        <p>{post.content}</p>
-                                    <p>{post.topic}</p>
-                                  </article>
+                        {userPosts.map((post, key) => (
+                            <div>
+                            
+                                <PostCard
+                                    key={post.id}
+                                    title={post.title}
+                                    content={post.content}
+                                    author={post.author}
+                                    topic={post.topic}
+                                />
+                                
                                 <div className='post-comment-wrap'>
                                      
                         <NavLink className='post-link' key={user_id} to={`/post/${post.id}`}>View Post</NavLink>
                            
                         <NavLink className='post-link' key={post.id} to={`/post/${post.id}/details`}>Comment</NavLink>
                                 </div>
-                              
+                                <h6>Comments</h6>
                                 </div>
                         ))}
                     </div>

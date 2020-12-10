@@ -1,16 +1,20 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import {addPost} from '../state-actions/post-action'
+import {addPost} from './post-action'
 import {connect} from 'react-redux'
 
-const CommentAdd = props => {
+const PostAdd = props => {
+
+    console.log(props)
 
     const USER_ID = localStorage.getItem('user_id')
+    const USERNAME = localStorage.getItem('username')
 
     const history = useHistory()
 
     const[newPost, setNewPost] = useState(
         {
+            author:USERNAME,
             title:'',
             content:'',
             topic:'',
@@ -39,6 +43,39 @@ const CommentAdd = props => {
             <div className='post-add-cta'>
                 <div className='post-add-form-cta'>
                     <form onSubmit={handleSubmitPost}>
+                      
+                        <div className='input-label-wrap'>
+                            <label htmlFor='title'>
+                                Title
+                            </label>
+                            <input
+                            required
+                            className='post-input-title'
+                            type='text'
+                            name='title'
+                            id='title'
+                            placeholder='Title'
+                            onChange={handleChangePost}
+                            value={newPost.title}
+                            />                  
+                        </div>
+
+                        <div className='input-label-wrap'>
+                            <label htmlFor='topic'>
+                                topics
+                            </label>
+                            <input
+                            required
+                            className='post-input'
+                            required
+                            type='text'
+                            name='topic'
+                            id='topic'
+                            placeholder='Post Entry'
+                            onChange={handleChangePost}
+                            value={newPost.topic}
+                            />                  
+                        </div>
                       
                         <div className='input-label-wrap'>
                             <label htmlFor='content'>
@@ -75,4 +112,4 @@ const mapStateToProps = state => {
   export default connect(
     mapStateToProps,
     { addPost }
-  )(CommentAdd);
+  )(PostAdd);

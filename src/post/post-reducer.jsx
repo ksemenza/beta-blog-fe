@@ -2,7 +2,7 @@ import {
     POST_REQ,
     POST_SUC,
     POST_FAIL
-} from '../state-actions/post-action'
+} from './post-action'
 
 const USER_ID = localStorage.getItem('user_id');
 

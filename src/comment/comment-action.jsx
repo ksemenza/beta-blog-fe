@@ -23,7 +23,7 @@ export const getCommentsAll = (comments, history) => dispatch => {
 //GET User's Comment
 export const getCommentDetails = (comments) => dispatch => {
     dispatch({type:COMMENT_REQ});
-    axiosAuth().get(`${USER_URL}${USER_ID}${DETAILS_URL}`, comments)
+    axiosAuth().get(`${COMMENT_URL}${USER_ID}${DETAILS_URL}`, comments)
     .then(res => {
         dispatch({type: COMMENT_SUC, payload:res.data})
     })
@@ -39,7 +39,7 @@ export const addComment = (comment) => dispatch => {
     axiosAuth().post(`${COMMENT_URL}`, comment)
     .then(res => {
         console.log(comment)
-        console.log(`add comment 43 ${res.data.comments} `)
+        console.log(`add comment 43 ${res.data} `)
         dispatch({ type: COMMENT_SUC, payload: res.data.comments })
         window.location.reload()
         

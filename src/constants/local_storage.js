@@ -16,4 +16,4 @@ export let COMMENT = 'comment'
 
 export let REACTION = 'reaction'
 
-export let HISTORY = useHistory()
+export let  = useHistory()

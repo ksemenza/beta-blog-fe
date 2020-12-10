@@ -7,7 +7,7 @@ import {Provider} from  'react-redux'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import userReducer from './state-reducers/user-reducer'
+import userReducer from './user/user-reducer'
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(userReducer, applyMiddleware(thunk, logger))

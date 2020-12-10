@@ -10,7 +10,7 @@ import {
     LOGOUT_REQUEST,
     LOGOUT_SUCCESS,
     LOGOUT_FAILURE
-    } from '../state-actions/user-action'
+    } from './user-action'
     
     const initialState = {
         id:'',
