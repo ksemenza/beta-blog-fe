@@ -3,6 +3,7 @@
 [Github Repo Link](https://github.com/ksemenza/beta-blog-fe)
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.git push -u origin main
+Deployed [https://beta-blog-fe.vercel.app/](hhttps://beta-blog-fe.vercel.app/) to view it in the browser.git push -u origin main
 
 ## Beta Blog Back End
 
