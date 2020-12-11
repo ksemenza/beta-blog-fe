@@ -1,10 +1,10 @@
 import axios from 'axios'
-import { LOCAL_URL } from '../constants/endpoints'
+import { LOCAL_URL, DEPLOYED_URL } from '../constants/endpoints'
 
 export const axiosAuth = () => {
     const token = localStorage.getItem('token');
     return axios.create({
-        baseURL: `${LOCAL_URL}`,
+        baseURL: `${DEPLOYED_URL}`,
         headers: {
             Authorization: token
         }

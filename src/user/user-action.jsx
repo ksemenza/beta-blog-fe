@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import {axiosAuth} from '../api/axiosAuth'
-import {LOCAL_URL, REGISTER_URL, LOGIN_URL, HOME_PAGE} from '../constants/endpoints'
+import {LOCAL_URL, REGISTER_URL, LOGIN_URL, HOME_PAGE, DEPLOYED_URL} from '../constants/endpoints'
 
 
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
@@ -23,7 +23,7 @@ export const registerUser = (newUser, history) => dispatch => {
     console.log(`action register`)
     dispatch({ type: REGISTER_REQUEST });
     axios
-      .post(`${LOCAL_URL}${REGISTER_URL}`, newUser)
+      .post(`${DEPLOYED_URL}${REGISTER_URL}`, newUser)
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem('token',res.data.token)
