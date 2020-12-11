@@ -14,7 +14,7 @@ const PostEdit = props => {
     const [selectedPost, setSelectedPost] = useState(
         {
             id:props.post.id,
-            // updatedAt: Date(),
+            updated_at:Date(),
             title:props.post.title,
             content:props.post.content,
             topic:props.post.topic

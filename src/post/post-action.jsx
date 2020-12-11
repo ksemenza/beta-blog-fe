@@ -42,7 +42,7 @@ export const addPost = (post) => dispatch => {
     .then(res => {
         // console.log(`add post 43 ${res.data.posts} `)
         dispatch({ type: POST_SUC, payload: res.data.posts })
-        // window.location.reload()
+        window.location.reload()
         
     })
     .catch(err => {
@@ -61,6 +61,8 @@ export const editPost = (post) => dispatch => {
     .then(res => {
         console.log(`edit post 57 ${post}`)
         dispatch({ type: POST_SUC, payload: post })
+                window.location.reload()
+
 
     })
     .catch(err => {
