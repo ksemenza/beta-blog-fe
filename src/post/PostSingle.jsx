@@ -12,33 +12,23 @@ const PostSingle = (props) => {
 
     const [post, setPost] = useState('')
     const [editing, setEditing] = useState(false)
-    const [postId, setPostId] = useState('')
-    // console.log(props.location.pathname)
 
 
     const history = useHistory()
 
     const currId = props.match.params
 
-    const deletePost = () => {
-        props.deletePost(post
-        )
-
-    }
-
     console.log(post)
 
+ 
         const [selectedPost, setSelectedPost] = useState(
             {
-            id:post.id,
-            updatedAt: post.updatedAt,
-            updatedAt: post.createdAt,
-            updatedAt: post.author,
-            title:post.title,
-            content:post.content,
-            topic: post.topic,
-            user_id: post.user_id
-            
+            id:'',
+            updatedAt:'',
+            updatedAt: '',
+            title:'',
+            content:'',
+            topic: '',
         }
     )
 
@@ -49,49 +39,24 @@ const PostSingle = (props) => {
         .then((res) => {
             setSelectedPost(res.data)
             localStorage.setItem('post_id', res.data.id)
-            console.log(res.data)
-            
+            console.log(res.data)       
         })
         .catch((err) => {
             console.log(`Get User Post Error`, err)
         })
      }, [])
-    
-       const [editedPost, setEditedPost] = useState(
-        {
-            title:selectedPost.title,
-            content:selectedPost.content,
-            topic:selectedPost.topic,
-        }
-    )
 
 
     const onClickEdit = () => {
         setEditing(!editing)
     }
 
-        const onEditSubmit = e => {
-        e.preventDefault()
-        // props.toggleAddPost()
-        editPost(selectedPost) 
-        history.push(`/post`)
- 
- 
+       const onClickDelete = () => {
+         props.deletePost(selectedPost)
+           props.history.push(`/post`)
+
     }
 
-/*
-    const onEditChange = e => {
-        console.log(e.target)
-              setSelectedPost({
-                  ...selectedPost,
-                  [e.target.name]: e.target.value
-              })
-        //        if (!selectedPost || selectedPost.id) {
-        //         return <div>Post ID {postId} was not found </div>
-        // }
-    }
-    */
-    
 
     return (
         <div className='post-single-cta'>
@@ -100,7 +65,8 @@ const PostSingle = (props) => {
             <NavLink to='/post'>back</NavLink>      
 
                 <button onClick={onClickEdit}>{editing ? 'Back' : 'Edit'} </button>
-                { editing && selectedPost && <PostEdit post={selectedPost} toggleEdit={onClickEdit} />}
+            { editing && selectedPost && <PostEdit post={selectedPost} toggleEdit={onClickEdit} />}
+            <button onClick={onClickDelete}>Delete</button>
                         
              
         </div>

@@ -56,7 +56,7 @@ const Post = props => {
                     <div >
                         {userPosts.map((post, key) => (
                             <div>
-                                <button onClick={handleClick}>{ !addPost ? 'Edit Post' : cancel }</button>
+                            
                                 <PostCard
                                     toggleEditPost={handleClick}
                                     key={key}

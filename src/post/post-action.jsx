@@ -73,10 +73,10 @@ export const editPost = (post) => dispatch => {
 export const deletePost = (post) => dispatch => {
     dispatch({type:POST_REQ})
     axiosAuth()
-    .delete(`${POST_URL}/:id`, post)
+    .delete(`${POST_URL}/${POST_ID}`)
     .then(res => {
-        // console.log(`delete post 70 ${res.data}`)
-        dispatch({type:POST_SUC, payload:res.data})
+        console.log(`delete post 70 ${post}`)
+        dispatch({type:POST_SUC, payload: res.data.post})
     })
     .catch(err => {
         dispatch({type:POST_FAIL, payload:err})
