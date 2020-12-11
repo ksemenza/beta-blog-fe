@@ -1,7 +1,7 @@
 {
   "name": "blog-beta-fe",
   "version": "0.1.0",
-   "homepage": "https://github.com/ksemenza/beta-blog-fe.git#readme",
+   "homepage": "https://beta-blog-fe.vercel.app",
      "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -28,7 +28,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "client":"npm install && npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
