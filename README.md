@@ -11,4 +11,4 @@
 - https://github.com/ksemenza/beta-blog-be
 
 - Local Host [http://localhost:8080](http://localhost:8080) 
-- Deployed Host [https://beta-blog-fe.vercel.app/api](hhttps://beta-blog-fe.vercel.app/api)
+- Deployed Host [https://beta-blog-be.herokuapp.com/](https://beta-blog-be.herokuapp.com/)
