@@ -7,17 +7,10 @@ import { COMMENT_URL } from '../constants/endpoints'
 
 const CommentAdd = props => {
     
-    console.log(props)
-
     const POST_ID = localStorage.getItem('post_id')
     const USERNAME = localStorage.getItem('username')
-    console.log(POST_ID)
 
     const history = useHistory()
-
-        console.log(history)
-
-
     const[newComment, setNewComment] = useState(
         {
             author:USERNAME,
@@ -49,7 +42,6 @@ const CommentAdd = props => {
 
     }
     
-    console.log(newComment)
 
         return(
             <div className='comment-add-cta'>

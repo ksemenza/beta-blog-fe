@@ -30,7 +30,7 @@ const Post = props => {
                 axiosAuth()
         .get(`${USER_URL}/${USER_ID}${DETAILS_URL}`)
   
-                    .then((res) => {
+        .then((res) => {
             postList = res.data.posts
             setUserPosts(postList)
         })

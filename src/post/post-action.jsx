@@ -1,13 +1,13 @@
 import axios from 'axios'
 import axiosAuth from '../api/axiosAuth';
-import {LOCAL_URL, USER_URL, POST_URL, DETAILS_URL} from '../constants/endpoints'
+import { LOCAL_URL, USER_URL, POST_URL, DETAILS_URL } from '../constants/endpoints'
 
 export const POST_REQ = "POST_REQ";
 export const POST_SUC = "POST_SUC";
 export const POST_FAIL = "POST_FAIL"; 
 
 // const USER_ID = localStorage.getItem('user_id');
-// const POST_ID = localStorage.getItem('post_id');
+const POST_ID = localStorage.getItem('post_id');
 
 
 
@@ -15,7 +15,7 @@ export const POST_FAIL = "POST_FAIL";
 export const getPostsAll = (posts, history) => dispatch => {
     dispatch({type:POST_REQ});
     axiosAuth().get(`${LOCAL_URL}${POST_URL}`, posts)
-    .then(res => {
+        .then(res => {
         dispatch({type: POST_SUC, payload:res.data})
     })
     .catch(err => {
@@ -40,10 +40,9 @@ export const addPost = (post) => dispatch => {
     dispatch({ type: POST_REQ })
     axiosAuth().post(`${POST_URL}`, post)
     .then(res => {
-        console.log(post)
-        console.log(`add post 43 ${res.data.posts} `)
+        // console.log(`add post 43 ${res.data.posts} `)
         dispatch({ type: POST_SUC, payload: res.data.posts })
-        window.location.reload()
+        // window.location.reload()
         
     })
     .catch(err => {
@@ -53,12 +52,16 @@ export const addPost = (post) => dispatch => {
 
 //EDIT Posts
 export const editPost = (post) => dispatch => {
-    dispatch({type:POST_REQ})
+    dispatch({ type: POST_REQ })
+
+    console.log(post)
+
     axiosAuth()
-    .put(`${POST_URL}${post.id}`, post)
+        .put(`${POST_URL}/${post.id}`, post)
     .then(res => {
-        console.log(`edit post 57 ${res.data}`)
-        dispatch({type:POST_SUC, payload:res.data})
+        console.log(`edit post 57 ${post}`)
+        dispatch({ type: POST_SUC, payload: post })
+
     })
     .catch(err => {
         dispatch({type:POST_FAIL, payload:err})
@@ -68,9 +71,9 @@ export const editPost = (post) => dispatch => {
 export const deletePost = (post) => dispatch => {
     dispatch({type:POST_REQ})
     axiosAuth()
-    .put(`${POST_URL}${post.id}`, post)
+    .delete(`${POST_URL}/:id`, post)
     .then(res => {
-        console.log(`delete post 70 ${res.data}`)
+        // console.log(`delete post 70 ${res.data}`)
         dispatch({type:POST_SUC, payload:res.data})
     })
     .catch(err => {

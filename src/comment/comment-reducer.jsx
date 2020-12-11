@@ -18,13 +18,13 @@ const initialState = {
 const commentReducer = (state = initialState, action) => {
     switch(action.type) {
         case COMMENT_REQ:
-            console.log(state, action, 'comment req 20 ')
+            // console.log(state, action, 'comment req 20 ')
             return{
                 ...state,
                 isLoadingComments:true
             }
             case COMMENT_SUC:
-                console.log(state, action, 'comment suc 28')
+                // console.log(state, action, 'comment suc 28')
                 return {
                     ...state,
                     isLoadingComments:false,
@@ -35,7 +35,7 @@ const commentReducer = (state = initialState, action) => {
            
                 }
             case COMMENT_FAIL:
-                console.log(state, action, 'comment fail 39')
+                // console.log(state, action, 'comment fail 39')
                 return {
                     ...state,
                     error:'Failure to Load User Comments 42'

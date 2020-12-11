@@ -37,8 +37,8 @@ export const addComment = (comment) => dispatch => {
     dispatch({ type: COMMENT_REQ })
     axiosAuth().post(`${COMMENT_URL}`, comment)
     .then(res => {
-        console.log(comment)
-        console.log(`add comment 43 ${res.data} `)
+        // console.log(comment)
+        // console.log(`add comment 43 ${res.data} `)
         dispatch({ type: COMMENT_SUC, payload: res.data.comments })
         window.location.reload()
         
@@ -54,7 +54,7 @@ export const editComment = (comment) => dispatch => {
     axiosAuth()
     .put(`${COMMENT_URL}${comment.id}`, comment)
     .then(res => {
-        console.log(`edit comment 57 ${res.data}`)
+        // console.log(`edit comment 57 ${res.data}`)
         dispatch({type:COMMENT_SUC, payload:res.data})
     })
     .catch(err => {
@@ -67,7 +67,7 @@ export const deleteComment = (comment) => dispatch => {
     axiosAuth()
     .put(`${COMMENT_URL}${comment.id}`, comment)
     .then(res => {
-        console.log(`delete comment 70 ${res.data}`)
+        // console.log(`delete comment 70 ${res.data}`)
         dispatch({type:COMMENT_SUC, payload:res.data})
     })
     .catch(err => {
