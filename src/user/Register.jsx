@@ -38,7 +38,8 @@ function Register(props) {
 {/*START OF FIRST NAME FIELD*/} 
         <div className='field-wrap first-name-field'  >
           <label htmlFor='first_name'>First Name</label>
-          <input
+            <input
+              autoFocus
             required 
             type='text'
             name='first_name'

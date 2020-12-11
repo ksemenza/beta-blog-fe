@@ -2,10 +2,15 @@ import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import {addPost} from './post-action'
 import {connect} from 'react-redux'
+import Tag from '../tag/Tag'
 
 const PostAdd = props => {
 
     console.log(props)
+
+const selectedTags = tags => {
+		console.log(tags);
+	};
 
     const USER_ID = localStorage.getItem('user_id')
     const USERNAME = localStorage.getItem('username')
@@ -49,6 +54,7 @@ const PostAdd = props => {
                                 Title
                             </label>
                             <input
+                            autoFocus
                             required
                             className='post-input-title'
                             type='text'
@@ -64,8 +70,8 @@ const PostAdd = props => {
                             <label htmlFor='topic'>
                                 topics
                             </label>
-                            <input
-                            required
+                            <input                          
+                          required
                             className='post-input'
                             required
                             type='text'
@@ -98,6 +104,8 @@ const PostAdd = props => {
                         <button type='submit'>Submit</button>
 
                     </form>
+
+                    <Tag/>
                 </div>
 
             </div>

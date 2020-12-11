@@ -61,6 +61,8 @@ const CommentAdd = props => {
                                 Comment
                             </label>
                             <textarea
+                                autoFocus
+                            
                             required
                             className='comment-textarea'
                             required

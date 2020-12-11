@@ -41,7 +41,8 @@ const Login = (props) => {
           <label className="label-login label-username" htmlFor="username">
             Username
           </label>
-          <input
+              <input
+                autoFocus
             required
             type="text"
             name="username"
