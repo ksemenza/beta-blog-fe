@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import {axiosAuth} from '../api/axiosAuth'
-import {LOCAL_URL, REGISTER_URL, LOGIN_URL, HOME_PAGE, DEPLOYED_URL} from '../constants/endpoints'
+import { LOCAL_URL, REGISTER_URL, LOGIN_URL, HOME_PAGE } from '../constants/endpoints'
 
 
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
@@ -16,14 +16,13 @@ export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
-let userID
 
 //REGISTER USER START
 export const registerUser = (newUser, history) => dispatch => {
     console.log(`action register`)
     dispatch({ type: REGISTER_REQUEST });
     axios
-      .post(`${DEPLOYED_URL}${REGISTER_URL}`, newUser)
+      .post(`${LOCAL_URL}${REGISTER_URL}`, newUser)
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem('token',res.data.token)
@@ -67,22 +66,3 @@ export const registerUser = (newUser, history) => dispatch => {
       dispatch({ type: LOGOUT_FAILURE });
     }
   };
-
-    //CABINET USER START
-
-
-    /*
-    export const cabinetUser = (cabinet, history) => dispatch => {
-      let user_id = localStorage.get('user_id', res.data.id)
-      dispatch({ type: LOGIN_REQUEST });
-      axios.post(`http://localhost:7000/api/strains/${usre}`, cabinet )
-        .then(res => {
-          localStorage.setItem('user_id', res.data.id)
-          dispatch({type:CABINET_SUCCESS, payload: res.data})  
-          history.push('/cabinet')
-        })
-        .catch(err => {
-          dispatch({ type: CABINET_FAILURE, payload: err.data });
-        });
-    };
-  */

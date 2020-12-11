@@ -1,18 +1,25 @@
-const { useHistory } = require("react-router-dom")
 
-// User's values
-export const USER_ID = localStorage.getItem('user_id');
-export let F_NAME = localStorage.getItem('fname')
-export let L_NAME = 'lname'
+
+// User's Values
+export const USER_ID = localStorage.getItem('user_id')
 export const USERNAME = localStorage.getItem('username')
-export let EMAIL = 'email'
-export let PASSWORD = 'password'
+export const F_NAME = localStorage.getItem('fname')
+export const L_NAME = localStorage.getItem('lname')
+export const EMAIL = localStorage.getItem('email')
 
-export let TITLE = 'title'
-export let CONTENT = 'content'
-export let TOPIC = 'topic'
-
-export const COMMENT_ID = localStorage.getItem('comment_id');
+// Post's Values
 export const POST_ID = localStorage.getItem('post_Id')
-export let REACTION = 'reaction'
+export const TITLE = localStorage.getItem('title')
+export const CONTENT = localStorage.getItem('content')
+export const TOPIC = localStorage.getItem('topic')
+
+// Comment's Value
+export const COMMENT_ID = localStorage.getItem('comment_id');
+export const COMMENT = localStorage.getItem('comment');
+
+// Notification Values
+export const NOTIFICATION_ID = localStorage.getItem('notification_id');
+export const REACTION = localStorage.getItem('reaction');
+
+
 
