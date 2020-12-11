@@ -6,8 +6,10 @@ export const POST_REQ = "POST_REQ";
 export const POST_SUC = "POST_SUC";
 export const POST_FAIL = "POST_FAIL"; 
 
-const USER_ID = localStorage.getItem('user_id');
-const POST_ID = localStorage.getItem('post_id');
+// const USER_ID = localStorage.getItem('user_id');
+// const POST_ID = localStorage.getItem('post_id');
+
+
 
 //GET Admin Post All
 export const getPostsAll = (posts, history) => dispatch => {
