@@ -1,6 +1,8 @@
 {
   "name": "blog-beta-fe",
   "version": "0.1.0",
+   "homepage": "https://github.com/ksemenza/beta-blog-fe.git#readme",
+     "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -31,11 +33,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "bugs": {
+    "url": "https://github.com/ksemenza/beta-blog-fe.git/issues"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "browserslist": {
     "production": [
