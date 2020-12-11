@@ -7,7 +7,7 @@ const DB_URL = process.env.BE_URL || LOCAL_URL
 export const axiosAuth = () => {
     const token = localStorage.getItem('token');
     return axios.create({
-        baseURL: `${DEPLOYED_URL}`,
+        baseURL: `${LOCAL_URL}`,
         headers: {
             Authorization: token
         }

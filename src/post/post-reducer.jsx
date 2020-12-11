@@ -8,6 +8,8 @@ const USER_ID = localStorage.getItem('user_id');
 
 const initialState = {
     id: '',
+    createdAt: '',
+    updatedAt: '',
     author:'',
     title:'',
     content:'',

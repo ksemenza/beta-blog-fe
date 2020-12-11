@@ -47,6 +47,9 @@ const selectedTags = tags => {
         return(
             <div className='post-add-cta'>
                 <div className='post-add-form-cta'>
+
+                    <h3> Add New Post </h3>
+
                     <form onSubmit={handleSubmitPost}>
                       
                         <div className='input-label-wrap'>

@@ -5,6 +5,7 @@ import {axiosAuth} from '../api/axiosAuth'
 const PostSingle = (props) => {
 
     const [post, setPost] = useState('')
+    const [postId, setPostId] = useState('')
     console.log(props.location.pathname)
     
      useEffect(() => {
@@ -12,22 +13,22 @@ const PostSingle = (props) => {
         .get(`${props.location.pathname}`)
   
                     .then((res) => {
-                        console.log(res.data)
+                        console.log(res.data.id)
                         setPost(res.data)
+                        setPostId(res.data.id)
         })
         .catch((err) => {
             console.log(`Get User Post Error`, err)
         })
      }, [])
     
-    console.log(post.title)
+    console.log(postId)
 
     return (
-        <div className='post-view-cta'>
+        <div className='post-single-cta'>
             <h2>{post.title}</h2>
             <p>{post.content}</p> 
-            <NavLink to='/post'>back</NavLink>
-        
+            <NavLink to='/post'>back</NavLink>        
         </div>
     )
 }
