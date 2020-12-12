@@ -9,16 +9,20 @@ import Comment from './comment/Comment'
 import Login from './user/Login'
 import PrivateRouter from './utils/PrivateRouter'
 import './assets/css/app.css';
+import Details from './components/Details'
 
 
 
 function App(props) {
+      const USER_ID = localStorage.getItem('user_id')
+
   return (
     <div className="App">
       <Route exact path = '/' component={Login} />
         <PrivateRouter exact path='/homepage' component={Homepage}/>
         <PrivateRouter exact path='/post' component={Post} exact/>
-        <PrivateRouter exact path='/post/:id/details' component={Comment}/>
+        <PrivateRouter exact path='/post' component={Post} exact/>
+      <PrivateRouter exact path={`/auth/:id/details`} component={Details}/>
         <PrivateRouter exact path='/post/:id' component={PostSingle} exact/>
         <PrivateRouter exact path='/comment/:id' component={CommentCard} exact/>
       <NavLink to='/homepage'>Home</NavLink>
