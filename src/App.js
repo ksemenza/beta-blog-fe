@@ -21,10 +21,10 @@ function App(props) {
       <Route exact path = '/' component={Login} />
         <PrivateRouter exact path='/homepage' component={Homepage}/>
         <PrivateRouter exact path='/post' component={Post} exact/>
-        <PrivateRouter exact path='/post' component={Post} exact/>
       <PrivateRouter exact path={`/auth/:id/details`} component={Details}/>
-        <PrivateRouter exact path='/comment' component={PostSingle} exact/>
-        <PrivateRouter exact path='/post/:id' component={Comment} exact/>
+      <PrivateRouter exact path={`/post/:id/details`} component={Comment}/>
+        <PrivateRouter exact path='/post/:id' component={PostSingle} exact/>
+        {/* <PrivateRouter exact path='/post/:id' component={Comment} exact/> */}
         <PrivateRouter exact path='/comment/:id' component={CommentCard} exact/>
       <NavLink to='/homepage'>Home</NavLink>
 
