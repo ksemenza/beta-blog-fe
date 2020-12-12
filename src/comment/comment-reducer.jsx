@@ -32,6 +32,7 @@ const commentReducer = (state = initialState, action) => {
                     id:action.payload.comments.id,
                     author:action.payload.comments.author,
                     comment:action.payload.comments.comment,
+                    post_id:action.payload.comments.post_id,
            
                 }
             case COMMENT_FAIL:

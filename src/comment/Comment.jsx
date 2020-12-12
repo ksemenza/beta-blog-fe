@@ -8,13 +8,25 @@ import '../assets/css/post.css'
 import CommentAdd from './CommentAdd'
 import CommentCard from '../comment/CommentCard'
 import { USER_ID } from '../constants/local_storage'
+import CommentFeed from './CommentFeed'
 
 
 
 const Comment = props => {
 
+    console.log(props.match.params.id)
+
+    localStorage.setItem('post_id', props.match.params.id)
+
     // Post's Comment List 
     const [postsComment, setPostsComment] = useState([])
+    const [postTitle, setPostsTitle] = useState('')
+    const [postContent, setPostsContent] = useState('')
+    const [postUpdated, setPostsUpdated] = useState('')
+    const [postTopic, setPostsTopic] = useState([])
+    const [postDetails, setPostsDetails] = useState([])
+    
+ 
 
     // Conditional to render add comment component
     const [addComment, setAddComment] = useState(false)
@@ -23,25 +35,27 @@ const Comment = props => {
     // variable assigned to postsComment's array
     let commentList
 
-  localStorage.setItem('post_id',props.match.params.id)    
 
-       const user_id = localStorage.getItem('user_id')
-    const fname = localStorage.getItem('fname')
-    const lname = localStorage.getItem('lname')
-    const username = localStorage.getItem('username')
+//   localStorage.setItem('post_id',props.match.params.id)    
+
 
 
     const handleClick = (e) => {
         setAddComment(!addComment)
     }
-        
+            console.log(postsComment)
+
             useEffect(() => {
                 axiosAuth()
-        .get(`${props.location.pathname}`)
+        .get(`${POST_URL}/${post_id}${DETAILS_URL}`)
   
                     .then((res) => {
+                        console.log(res.data)
                         commentList = res.data.comments
+                        setPostsDetails(res.data)
                         setPostsComment(commentList)
+                        setPostsTitle(res.data.title)
+                        setPostsContent(res.data.content)
 
         })
         .catch((err) => {
@@ -49,7 +63,10 @@ const Comment = props => {
         })
     },[])
     
-    // console.log(postsComment)
+
+    console.log(postDetails)
+    console.log(postTitle)
+    console.log(postTitle)
 
     return (
         <div className='comment-cta'>
@@ -59,30 +76,41 @@ const Comment = props => {
             <NavLink className='post-link' to={`/post`}>Back</NavLink>
             </div>
 
+            {/* <CommentFeed/> */}
             <div className='comment-list-wrap'>
                 <button onClick={handleClick}> {!addComment ? 'Add Comment' : 'Cancel'} </button>
 
-                {addComment ? <CommentAdd toggleAddComment={handleClick} /> :
+                {postsComment ? <CommentAdd toggleAddComment={handleClick} /> :
                     <div className='comment-list-cta'>
                         {
                             postsComment.length > 0 ?
                                 <div className='comment-list-wrap'>
                                     <div>
-                                        {postsComment.map(comment => (
+                                        {postsComment.map((comment)  => (
                                             <div>
-                                                
-                                                <CommentCard 
+                                                {/* <CommentCard 
                                                     key={comment.id}
                                                     comment={comment.comment}
                                                     author={comment.author}
-                                                />
+                                                /> */}
+                                                <NavLink className='comment-link' to={`/comment/${comment.id}`}>View comment</NavLink>
                                             </div>
                                         ))}
                                     </div>
                                 </div> : <h6> No Comments  </h6>
                         }
                     </div>
-                 }
+                }
+                
+                {postsComment.map((comment) => (
+
+                    <div>
+                        <CommentCard key={comment.id} comment = {comment.comment} author={comment.author} post_id = {comment.post_id} />
+
+                        {/* <h2>{comment.author}</h2>
+                        <h2>{comment.comment}</h2> */}
+                    </div>
+                ))}
             </div>
         </div> 
             

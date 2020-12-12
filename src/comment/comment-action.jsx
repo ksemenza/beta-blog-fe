@@ -38,7 +38,7 @@ export const addComment = (comment) => dispatch => {
     axiosAuth().post(`${COMMENT_URL}`, comment)
     .then(res => {
         // console.log(comment)
-        // console.log(`add comment 43 ${res.data} `)
+        console.log(`add comment 43 ${res.data} `)
         dispatch({ type: COMMENT_SUC, payload: res.data.comments })
         window.location.reload()
         

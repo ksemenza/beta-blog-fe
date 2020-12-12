@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react'
 import { useHistory, Link } from "react-router-dom";
 import { editPost } from '../post/post-action'
 import { connect } from 'react-redux'
-import { POST_ID } from '../constants/local_storage'
 
 const PostEdit = props => {
 

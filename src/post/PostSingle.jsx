@@ -6,6 +6,8 @@ import { USER_ID, USERNAME } from '../constants/local_storage'
 import { editPost, deletePost } from './post-action'
 import { connect } from 'react-redux'
 import PostEdit from './PostEdit'
+import CommentCard from '../comment/CommentCard'
+
 
 
 const PostSingle = (props) => {
@@ -62,7 +64,9 @@ const PostSingle = (props) => {
         <div className='post-single-cta'>
             <h2>{selectedPost.title}</h2>
             <p>{selectedPost.content}</p> 
-            <NavLink to='/post'>back</NavLink>      
+            <NavLink to='/post'>back</NavLink>     
+                                            <CommentCard/>
+
 
                 <button onClick={onClickEdit}>{editing ? 'Back' : 'Edit'} </button>
             { editing && selectedPost && <PostEdit post={selectedPost} toggleEdit={onClickEdit} />}

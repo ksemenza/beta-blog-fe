@@ -6,6 +6,9 @@ import { editPost } from './post-action'
 
 const PostCard = props => {
 
+    
+
+
     return (
         <div className='post-view-cta'>
             
