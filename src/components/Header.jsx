@@ -23,6 +23,7 @@ const Header = props => {
                 <nav className='nav-link-wrap'>
                     <Link className='header-link-nav' to='/homepage'>Home</Link>
                     <Link className='header-link-nav'  to='/post'>Post</Link>
+                    <Link className='header-link-nav'  to='/auth/:id/details'>Details</Link>
                     <Link className='header-link-nav'  to='/comment'>Comment</Link>
                     <Link className='header-link-nav'  to='/notifications'>Notification</Link>
                     </nav>

@@ -9,6 +9,7 @@ import Comment from './comment/Comment'
 import Login from './user/Login'
 import PrivateRouter from './utils/PrivateRouter'
 import './assets/css/app.css';
+import UserDetails from './details/UserDetails'
 
 
 
@@ -19,6 +20,7 @@ function App(props) {
         <PrivateRouter exact path='/homepage' component={Homepage}/>
         <PrivateRouter exact path='/post' component={Post} exact/>
         <PrivateRouter exact path='/post/:id/details' component={Comment}/>
+        <PrivateRouter exact path='/auth/:id/details' component={UserDetails}/>
         <PrivateRouter exact path='/post/:id' component={PostSingle} exact/>
         <PrivateRouter exact path='/comment/:id' component={CommentCard} exact/>
       <NavLink to='/homepage'>Home</NavLink>
