@@ -5,14 +5,21 @@ import {USER_ID} from '../constants/local_storage'
 
 const Details = (props) => {
 
-    console.log(props.location.pathname)
+    const [comments, setComments] = useState([])
+    const [posts, setPosts] = useState([])
+    const [notifications, setNotifications] = useState([])
+
+    // console.log(props.location.pathname)
 
         useEffect(() => {
          axiosAuth()
         .get(`${props.location.pathname}`)
   
              .then((res) => {
-            console.log(res.data)
+                 console.log(res.data)
+                 setPosts(res.data.posts)
+                 setComments(res.data.comments)
+                 setNotifications(res.data.notifications)
         })
         .catch((err) => {
             console.log(`Get User Post Error`, err)
@@ -20,6 +27,9 @@ const Details = (props) => {
     
     }, [])
 
+    console.log('posts',posts)
+    console.log('comments',comments)
+    console.log('notifications',notifications)
 
     return (
         <div className='post-view-cta'>
