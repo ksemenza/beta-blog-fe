@@ -78,9 +78,9 @@ const Comment = props => {
 
             {/* <CommentFeed/> */}
             <div className='comment-list-wrap'>
-                <button onClick={handleClick}> {!addComment ? 'Add Comment' : 'Cancel'} </button>
+                {/* <button onClick={handleClick}> {!addComment ? 'Add Comment' : 'Cancel'} </button> */}
                 <h3> {postDetails.title} </h3>
-             <h6> {postDetails.author}</h6>  
+             <p>author:{postDetails.author}</p>  
                <p>{postDetails.content}</p> 
 
                 {postsComment ? <CommentAdd toggleAddComment={handleClick} /> :

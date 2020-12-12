@@ -23,7 +23,7 @@ export const registerUser = (newUser, history) => dispatch => {
     console.log(`action register`)
     dispatch({ type: REGISTER_REQUEST });
     axios
-      .post(`${LOCAL_URL}${REGISTER_URL}`, newUser)
+      .post(`${DEPLOYED_URL}${REGISTER_URL}`, newUser)
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem('token',res.data.token)
