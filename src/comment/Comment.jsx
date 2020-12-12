@@ -79,6 +79,9 @@ const Comment = props => {
             {/* <CommentFeed/> */}
             <div className='comment-list-wrap'>
                 <button onClick={handleClick}> {!addComment ? 'Add Comment' : 'Cancel'} </button>
+                <h3> {postDetails.title} </h3>
+             <h6> {postDetails.author}</h6>  
+               <p>{postDetails.content}</p> 
 
                 {postsComment ? <CommentAdd toggleAddComment={handleClick} /> :
                     <div className='comment-list-cta'>
@@ -101,11 +104,12 @@ const Comment = props => {
                         }
                     </div>
                 }
+
                 
                 {postsComment.map((comment) => (
 
                     <div>
-                        <CommentCard key={comment.id} comment = {comment.comment} author={comment.author} post_id = {comment.post_id} />
+                         <CommentCard key={comment.id} comment = {comment.comment} author={comment.author} post_id = {comment.post_id} /> 
 
                         {/* <h2>{comment.author}</h2>
                         <h2>{comment.comment}</h2> */}
