@@ -8,6 +8,7 @@ import Comment from '../comment/Comment'
 import '../assets/css/post.css'
 import PostCard from './PostCard'
 import { USER_ID, F_NAME } from '../constants/local_storage'
+import CommentAdd from '../comment/CommentAdd'
 
 
 const Post = props => {
@@ -68,8 +69,6 @@ const Post = props => {
                                     author={post.author}
                                     topic={post.topic}
                                 />
-
-                                
                                 <div className='post-comment-wrap'>
                                      
                         <NavLink className='post-link' key={USER_ID} to={`/post/${post.id}`}>View Post</NavLink>

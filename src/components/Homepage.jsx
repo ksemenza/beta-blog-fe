@@ -4,6 +4,9 @@ import Header from './Header'
 import Footer from './Footer'
 import '../assets/css/home.css'
 import MainPage from './MainPage'
+import Comment from '../comment/Comment'
+import CommentSingle from '../comment/CommentSingle'
+import CommentAdd from '../comment/CommentAdd'
 
 
 const Homepage = props => {
@@ -16,7 +19,7 @@ const Homepage = props => {
                 </div>
             <div className='home-wrap'>
                 <h4 className='home-header'>Welcome {fname}</h4>
-                <MainPage/>
+                <MainPage />
             </div>
 
             <Footer/>

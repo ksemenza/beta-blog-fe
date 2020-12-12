@@ -7,6 +7,10 @@ import { editPost, deletePost } from './post-action'
 import { connect } from 'react-redux'
 import PostEdit from './PostEdit'
 import CommentCard from '../comment/CommentCard'
+import { addComment } from '../comment/comment-action'
+import CommentAdd from '../comment/CommentAdd'
+import Comment from '../comment/Comment'
+import CommentSingle from '../comment/CommentSingle'
 
 
 
@@ -65,8 +69,9 @@ const PostSingle = (props) => {
             <h2>{selectedPost.title}</h2>
             <p>{selectedPost.content}</p> 
             <NavLink to='/post'>back</NavLink>     
-                                            <CommentCard/>
-
+            <CommentCard />
+            <Comment />
+            <CommentSingle/>
 
                 <button onClick={onClickEdit}>{editing ? 'Back' : 'Edit'} </button>
             { editing && selectedPost && <PostEdit post={selectedPost} toggleEdit={onClickEdit} />}

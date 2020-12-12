@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {NavLink} from 'react-router-dom'
 import {axiosAuth} from '../api/axiosAuth'
 import { connect } from 'react-redux'
-import { POST_URL } from '../constants/endpoints'
+import { COMMENT_URL, POST_URL, USER_URL } from '../constants/endpoints'
 import Comment from '../comment/Comment'
 import '../assets/css/main-page.css'
 
@@ -14,16 +14,41 @@ const MainPage = (props) => {
 
     useEffect(() => {
          axiosAuth()
-        .get(`${POST_URL}`)
+        .get(`${USER_URL}`)
   
         .then((res) => {
-            setPostList(res.data)
-
+            // setPostList(res.data)
+            console.log(res.data)
         })
         .catch((err) => {
             console.log(`Get User Post Error`, err)
         })
+    }, [])
     
+
+    useEffect(() => {
+         axiosAuth()
+        .get(`${POST_URL}`)
+  
+        .then((res) => {
+            setPostList(res.data)
+            // console.log(res)
+        })
+        .catch((err) => {
+            console.log(`Get User Post Error`, err)
+        })
+    }, [])
+
+    useEffect(() => {
+         axiosAuth()
+        .get(`${COMMENT_URL}`)
+        .then((res) => {
+            // setPostList(res.data)
+            // console.log(res.data)
+        })
+        .catch((err) => {
+            console.log(`Get User Post Error`, err)
+        })
     }, [])
 
 
@@ -37,7 +62,8 @@ const MainPage = (props) => {
                             <h5>{posts.title} </h5>
                             <h6>author: {posts.author} </h6>
                             <p>{posts.content} </p>
-                            <NavLink className='post-link' to={`/post/${posts.id}`}>View Post</NavLink>
+
+                            <NavLink className='post-link' key={posts.id} to={`/post/:id/details`}>View Post</NavLink>
                         </div>
                     ))}
                 </div>
