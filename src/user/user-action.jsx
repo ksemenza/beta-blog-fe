@@ -23,7 +23,7 @@ export const registerUser = (newUser, history) => dispatch => {
     console.log(`action register`)
     dispatch({ type: REGISTER_REQUEST });
     axios
-      .post(`https://beta-blog-be.herokuapp.com/api/register`, newUser)
+      .post(`https://beta-blog-be.herokuapp.com/api/autuh/register`, newUser)
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem('token',res.data.token)
@@ -37,7 +37,7 @@ export const registerUser = (newUser, history) => dispatch => {
   //LOGIN USER START
   export const loginUser = (user, history) => dispatch => {
     dispatch({ type: LOGIN_REQUEST });
-    axiosAuth().post(`/login`, user )
+    axiosAuth().post(`/auth/login`, user )
     
       .then(res => {
           console.log(res.data.user.password)
