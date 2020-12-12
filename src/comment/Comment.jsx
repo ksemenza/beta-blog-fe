@@ -73,7 +73,7 @@ const Comment = props => {
             <h6>Comments</h6>
         <div className='post-link'>
             <NavLink className='post-link' to={`/post/${post_id}`}>Post</NavLink>
-            <NavLink className='post-link' to={`/post`}>Back</NavLink>
+            <NavLink className='post-link' to={`/homepage`}>Back</NavLink>
             </div>
 
             {/* <CommentFeed/> */}

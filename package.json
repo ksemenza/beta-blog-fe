@@ -1,8 +1,8 @@
 {
   "name": "blog-beta-fe",
   "version": "0.1.0",
-   "homepage": "https://beta-blog-fe.vercel.app",
-     "main": "index.js",
+  "homepage": "https://beta-blog-fe.vercel.app",
+  "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -32,7 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-    "bugs": {
+  "bugs": {
     "url": "https://github.com/ksemenza/beta-blog-fe.git/issues"
   },
   "jest": {

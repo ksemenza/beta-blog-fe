@@ -64,7 +64,7 @@ const PostSingle = (props) => {
         <div className='post-single-cta'>
             <h2>{selectedPost.title}</h2>
             <p>{selectedPost.content}</p> 
-            <NavLink to='/post'>back</NavLink>     
+            <NavLink to='/homepage'>back</NavLink>     
                                             <CommentCard/>
 
 
