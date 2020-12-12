@@ -5,11 +5,11 @@ import {USER_ID} from '../constants/local_storage'
 
 const Details = (props) => {
 
-    console.log(props.location.pathway)
+    console.log(props.location.pathname)
 
         useEffect(() => {
          axiosAuth()
-        .get(`/auth/${USER_ID}/details`)
+        .get(`${props.location.pathname}`)
   
              .then((res) => {
             console.log(res.data)
