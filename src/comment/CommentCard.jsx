@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import '../assets/css/comment.css'
 
 const CommentCard = props => {
 
@@ -11,10 +12,9 @@ const CommentCard = props => {
 
 
     return (
-        <div className='comment-view-cta'>
+        <div className='comment-card-cta'>
             <h6>author {props.author}</h6>
             <p> {props.comment} </p>
-            <p> post id {props.post_id} </p>
                 
         </div>
     )
