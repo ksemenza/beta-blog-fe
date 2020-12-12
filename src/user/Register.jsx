@@ -16,7 +16,7 @@ function Register(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(newUser, props.history)
+        // console.log(newUser, props.history)
         props.registerUser(newUser, props.history)
         props.toggleRegister()
      

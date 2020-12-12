@@ -17,7 +17,6 @@ const MainPage = (props) => {
         .get(`${POST_URL}`)
   
         .then((res) => {
-            console.log(res.data)
             setPostList(res.data)
 
         })
@@ -27,7 +26,6 @@ const MainPage = (props) => {
     
     }, [])
 
-    console.log(postList)
 
     return (
         <div className='post-view-cta'>

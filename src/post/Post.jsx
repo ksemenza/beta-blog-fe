@@ -31,8 +31,11 @@ const Post = props => {
         .get(`${USER_URL}/${USER_ID}${DETAILS_URL}`)
   
                     .then((res) => {
+            
             postList = res.data.posts
-            setUserPosts(postList)
+                        setUserPosts(postList)
+                                        console.log(userPosts)
+
         })
         .catch((err) => {
             console.log(`Get User Post Error`, err)
@@ -58,12 +61,14 @@ const Post = props => {
                             <div>
                             
                                 <PostCard
+                                    toggleEditPost={handleClick}
                                     key={post.id}
                                     title={post.title}
                                     content={post.content}
                                     author={post.author}
                                     topic={post.topic}
                                 />
+
                                 
                                 <div className='post-comment-wrap'>
                                      

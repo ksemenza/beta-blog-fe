@@ -6,10 +6,10 @@ import Tag from '../tag/Tag'
 
 const PostAdd = props => {
 
-    console.log(props)
+    // console.log(props)
 
 const selectedTags = tags => {
-		console.log(tags);
+		// console.log(tags);
 	};
 
     const USER_ID = localStorage.getItem('user_id')
@@ -47,6 +47,9 @@ const selectedTags = tags => {
         return(
             <div className='post-add-cta'>
                 <div className='post-add-form-cta'>
+
+                    <h3> Add New Post </h3>
+
                     <form onSubmit={handleSubmitPost}>
                       
                         <div className='input-label-wrap'>

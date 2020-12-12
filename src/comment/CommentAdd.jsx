@@ -8,16 +8,14 @@ import { COMMENT_URL } from '../constants/endpoints'
 const CommentAdd = props => {
     
     console.log(props)
-
     const POST_ID = localStorage.getItem('post_id')
     const USERNAME = localStorage.getItem('username')
+
     console.log(POST_ID)
 
+    console.log(props)
+
     const history = useHistory()
-
-        console.log(history)
-
-
     const[newComment, setNewComment] = useState(
         {
             author:USERNAME,
@@ -44,7 +42,7 @@ const CommentAdd = props => {
         }
 
     const handleChangeComment = e => {
-        e.persist();
+        
         setNewComment({...newComment, [e.target.name]: e.target.value})
 
     }

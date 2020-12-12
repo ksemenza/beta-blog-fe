@@ -8,6 +8,8 @@ const USER_ID = localStorage.getItem('user_id');
 
 const initialState = {
     id: '',
+    createdAt: '',
+    updatedAt: '',
     author:'',
     title:'',
     content:'',
@@ -20,13 +22,13 @@ const initialState = {
 const postReducer = (state = initialState, action) => {
     switch(action.type) {
         case POST_REQ:
-            console.log(state, action, 'post req 20 ')
+            // console.log(state, action, 'post req 20 ')
             return{
                 ...state,
                 isLoadingPosts:true
             }
             case POST_SUC:
-                console.log(state, action, 'post suc 28')
+            // console.log(state, action, 'post suc 28')
                 return {
                     ...state,
                     isLoadingPosts:false,
@@ -38,7 +40,7 @@ const postReducer = (state = initialState, action) => {
                     topic:action.payload.posts.topic,
                 }
             case POST_FAIL:
-                console.log(state, action, 'post fail 39')
+                // console.log(state, action, 'post fail 39')
                 return {
                     ...state,
                     error:'Failure to Load User Posts 42'
