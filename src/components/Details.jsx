@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { connect } from 'react-redux'
 import { axiosAuth } from '../api/axiosAuth'
-import {USER_ID} from '../constants/local_storage'
+import { USER_ID } from '../constants/local_storage'
+import PostCard from '../post/PostCard'
+import CommentCard from '../comment/CommentSingle'
 
 const Details = (props) => {
 
@@ -9,7 +11,7 @@ const Details = (props) => {
     const [posts, setPosts] = useState([])
     const [notifications, setNotifications] = useState([])
 
-    // console.log(props.location.pathname)
+    console.log(props)
 
         useEffect(() => {
          axiosAuth()
@@ -33,7 +35,37 @@ const Details = (props) => {
 
     return (
         <div className='post-view-cta'>
-            <h2></h2>
+            <h2>Posts</h2>
+
+               {posts.map((post, key) => (
+                            <div>
+                        
+                                <PostCard
+                                    // toggleEditPost={handleClick}
+                                    key={post.id}
+                                    title={post.title}
+                                    content={post.content}
+                                    author={post.author}
+                                    topic={post.topic}
+                                />
+
+      
+                                </div>
+               ))}
+            
+            <h2>Comments</h2>
+
+               {comments.map((comment, key) => (
+                            <div>
+                        
+                                <CommentCard 
+                                                    key={comment.id}
+                                                    comment={comment.comment}
+                                                    author={comment.author}
+                                                /> 
+      
+                                </div>
+                        ))}
         
         </div>
     )
