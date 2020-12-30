@@ -1,13 +1,14 @@
 {
   "name": "blog-beta-fe",
   "version": "0.1.0",
-   "homepage": "https://beta-blog-fe.vercel.app",
-     "main": "index.js",
+  "homepage": "https://beta-blog-fe.vercel.app",
+  "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
+    "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
     "history": "^5.0.0",
     "now": "^21.0.1",
@@ -32,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-    "bugs": {
+  "bugs": {
     "url": "https://github.com/ksemenza/beta-blog-fe.git/issues"
   },
   "jest": {
