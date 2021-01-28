@@ -7,11 +7,12 @@ export const COMMENT_REQ = "COMMENT_REQ";
 export const COMMENT_SUC = "COMMENT_SUC";
 export const COMMENT_FAIL = "COMMENT_FAIL"; 
 
+const URL_BE = process.env.BE_URL || LOCAL_URL
 
 //GET Admin Comment All
 export const getCommentsAll = (comments, history) => dispatch => {
     dispatch({type:COMMENT_REQ});
-    axiosAuth().get(`${LOCAL_URL}${COMMENT_URL}`, comments)
+    axiosAuth().get(`${URL_BE}${COMMENT_URL}`, comments)
     .then(res => {
         dispatch({type: COMMENT_SUC, payload:res.data})
     })
