@@ -37,7 +37,7 @@ const MainPage = (props) => {
                             <h5>{posts.title} </h5>
                             <h6>author: {posts.author} </h6>
                             <p>{posts.content} </p>
-                            <NavLink className='post-link' to={`/post/${posts.id}`}>View Post</NavLink>
+                            <NavLink className='post-link' to={`/post/${posts.id}/details`}>View Post</NavLink>
                             <NavLink className='post-link' to={`/post/${posts.id}/details`}>Comments</NavLink>
                         </div>
                     ))}
