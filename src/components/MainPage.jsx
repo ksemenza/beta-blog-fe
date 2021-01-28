@@ -34,10 +34,10 @@ const MainPage = (props) => {
                 <div>
                     {postList.map(posts => (
                         <div className='main-cta-list'>
-                            <h5>{posts.title} </h5>
-                            <h6>author: {posts.author} </h6>
-                            <p>{posts.content} </p>
-                            <NavLink className='post-link' to={`/post/${posts.id}/details`}>View Post</NavLink>
+                            <h5 className='page_title'>{posts.title} </h5>
+                            <p className='post_author_text'> {posts.author} </p>
+                            <p className='post_content_text'>{posts.content} </p>
+                            {/* <NavLink className='post-link' to={`/post/${posts.id}/details`}>View Post</NavLink> */}
                             <NavLink className='post-link' to={`/post/${posts.id}/details`}>Comments</NavLink>
                         </div>
                     ))}

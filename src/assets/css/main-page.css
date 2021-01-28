@@ -1,4 +1,21 @@
 .main-cta-list{
-    border: 1px black solid;
+    border: 1px ghostwhite groove;
     padding: 3.2rem;
+    width: 70rem;
+}
+
+.post_author_text {
+    font-weight: 600;
+    /* padding-bottom: 2.1rem; */
+    font-size: 1.6rem;
+    font-style:italic;
+}
+
+.page_title {
+   font-size: 3.2rem;
+}
+
+.post_content_text {
+    font-size:2.1rem;
+    padding: 2.1rem;
 }
