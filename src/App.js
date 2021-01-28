@@ -26,7 +26,7 @@ function App(props) {
       <PrivateRouter exact path={`/auth/:id`} component={Profile}/>
       <PrivateRouter exact path={`/post/:id/details`} component={Comment}/>
         <PrivateRouter exact path='/post/:id' component={PostSingle} exact/>
-        {/* <PrivateRouter exact path='/post/:id' component={Comment} exact/> */}
+        <PrivateRouter exact path='/post/:id' component={Comment} exact/>
         <PrivateRouter exact path='/comment/:id' component={CommentCard} exact/>
       <NavLink to='/homepage'>Home</NavLink>
 
