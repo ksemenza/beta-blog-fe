@@ -21,7 +21,7 @@ const Homepage = props => {
                 <UserDetails/>
             </div>
 
-            <Footer/>
+            {/* <Footer/> */}
 
         </div>
     )

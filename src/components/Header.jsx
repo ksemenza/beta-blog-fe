@@ -27,7 +27,7 @@ const Header = props => {
                     <Link className='header-link-nav' to={`/auth/${USER_ID}`}>Profile</Link>
                     {/* <Link className='header-link-nav' to={`/auth/${USER_ID}/details`}>Details</Link> */}
                    <a href="/post" className='header-link-nav' >My Posts</a>
-                    <Link className='header-link-nav' to='/comment'>My Comments</Link>
+                    {/* <Link className='header-link-nav' to='/comment'>My Comments</Link> */}
                     {/* <Link className='header-link-nav'  to='/notifications'>Notification</Link> */}
                     </nav>
             
