@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import Header from './Header'
 import Footer from './Footer'
 import '../assets/css/home.css'
 import MainPage from './MainPage'
+import UserDetails from '../details/UserDetails'
 
 
 const Homepage = props => {
@@ -16,7 +17,8 @@ const Homepage = props => {
                 </div>
             <div className='home-wrap'>
                 <h4 className='home-header'>Welcome {fname}</h4>
-                <MainPage/>
+                <MainPage />
+                <UserDetails/>
             </div>
 
             <Footer/>

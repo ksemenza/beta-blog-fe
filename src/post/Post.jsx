@@ -72,7 +72,7 @@ const Post = props => {
                                 
                                 <div className='post-comment-wrap'>
                                      
-                        <NavLink className='post-link' key={USER_ID} to={`/post/${post.id}`}>View Post</NavLink>
+                        <NavLink className='post-link' key={USER_ID} to={`/post/${post.id}/details`}>View Post</NavLink>
                            
                         <NavLink className='post-link' key={post.id} to={`/post/${post.id}/details`}>Comment</NavLink>
                                 </div>
