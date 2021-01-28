@@ -12,7 +12,7 @@ import CommentCard from '../comment/CommentCard'
 
 const PostSingle = (props) => {
 
-    const [post, setPost] = useState('')
+    const [postId, setPostId] = useState('')
     const [editing, setEditing] = useState(false)
 
 
@@ -20,7 +20,6 @@ const PostSingle = (props) => {
 
     const currId = props.match.params
 
-    console.log(post)
 
  
         const [selectedPost, setSelectedPost] = useState(
@@ -41,13 +40,12 @@ const PostSingle = (props) => {
         .then((res) => {
             setSelectedPost(res.data)
             localStorage.setItem('post_id', res.data.id)
-            console.log(res.data)       
+            setPostId(res.data.id)    
         })
         .catch((err) => {
             console.log(`Get User Post Error`, err)
         })
      }, [])
-
 
     const onClickEdit = () => {
         setEditing(!editing)
@@ -64,8 +62,7 @@ const PostSingle = (props) => {
         <div className='post-single-cta'>
             <h2>{selectedPost.title}</h2>
             <p>{selectedPost.content}</p> 
-            <NavLink to='/homepage'>back</NavLink>     
-                                            <CommentCard/>
+            <NavLink to={`/post/${postId}/details`}>back</NavLink>     
 
 
                 <button onClick={onClickEdit}>{editing ? 'Back' : 'Edit'} </button>

@@ -72,7 +72,7 @@ const Comment = props => {
         <div className='comment-cta'>
             <h6>Comments</h6>
         <div className='post-link'>
-            <NavLink className='post-link' to={`/post/${post_id}`}>Post</NavLink>
+            <NavLink className='post-link' to={`/post`}>Posts</NavLink>
             <NavLink className='post-link' to={`/homepage`}>Back</NavLink>
             </div>
 

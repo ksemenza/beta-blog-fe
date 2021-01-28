@@ -16,14 +16,15 @@ export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
-const DB_URL = process.env.BE_URL || LOCAL_URL
+
+const URL_BE = process.env.BE_URL || LOCAL_URL
 
 //REGISTER USER START
 export const registerUser = (newUser, history) => dispatch => {
     console.log(`action register`)
     dispatch({ type: REGISTER_REQUEST });
     axios
-      .post(`${LOCAL_URL}${REGISTER_URL}`, newUser)
+      .post(`${URL_BE}/auth/register`, newUser)
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem('token',res.data.token)
@@ -37,7 +38,7 @@ export const registerUser = (newUser, history) => dispatch => {
   //LOGIN USER START
   export const loginUser = (user, history) => dispatch => {
     dispatch({ type: LOGIN_REQUEST });
-    axiosAuth().post(`${LOGIN_URL}`, user )
+    axiosAuth().post(`/auth/login`, user )
     
       .then(res => {
           console.log(res.data.user.password)
