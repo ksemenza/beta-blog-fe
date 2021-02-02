@@ -20,6 +20,8 @@ code {
 html {
   font-size: 62.5%;
   padding: 1.5rem;
+  display: flex;
+  justify-content: center;
 
 }
 

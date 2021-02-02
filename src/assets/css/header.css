@@ -1,37 +1,47 @@
-.header-title-cta {
-    position: absolute;
+.header-title {
+    text-align: center;
+
+}
+
+h2.header-title {
+    position: relative;
+    padding-bottom: 2.5rem;
+
 }
 
 .header-cta {
-    position: absolute;
+
 
 }
 
 .header-link-nav {
-    margin: 3rem 4rem 4rem 3rem;
+    display: flex;
+    margin: 1rem 4rem 1rem 4rem;
     text-decoration: none;
     font-size: 2rem;
+    min-width:100wv;
 
 }
 
-.nav-link-wrap {
-        position: absolute;
-        margin-right: 15rem;
-
+nav.nav-link-wrap {
+        display: flex;
+        justify-content: right;
+        border: 1px solid black;
+        width: 100vw;
+        flex-direction: row-reverse;
 }
 
 .nav-logout-wrap{
     display: flex;
-    /* flex-direction: row-reverse; */
     margin-top: 1rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     min-width: 100vw;
+    text-align: center;
     
 }
 
 .header-btn-logout{
-      margin-left: 60rem;
       padding: 0.25rem 1rem 0.25rem 1rem;
       font-size: 1.4rem;
       font-weight: 500;
@@ -39,11 +49,3 @@
    
 }
 
-h2 {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-}
