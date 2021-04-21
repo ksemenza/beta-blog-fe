@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { LOCAL_URL } from '../constants/endpoints'
+import { LOCAL_URL, DEPLOYED_URL } from "../constants/endpoints";
 
-const URL_BE = process.env.BE_URL || LOCAL_URL
+const URL_BE = process.env.BE_URL || DEPLOYED_URL;
 
 
 export const axiosAuth = () => {

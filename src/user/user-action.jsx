@@ -17,7 +17,7 @@ export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
 
-const URL_BE = process.env.BE_URL || LOCAL_URL
+const URL_BE = process.env.BE_URL || DEPLOYED_URL;
 
 //REGISTER USER START
 export const registerUser = (newUser, history) => dispatch => {
