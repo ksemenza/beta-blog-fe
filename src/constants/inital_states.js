@@ -1,26 +1,22 @@
-const USER_ID = localStorage.getItem('user_id');
+const USER_ID = localStorage.getItem("user_id");
 
 export const notificationState = {
-    reaction:'',
-}
+  reaction: "",
+};
 
 export const commentState = {
-    comment:'',
-}
+  comment: "",
+};
 
 export const postState = {
-    title:'',
-    content:'',
-    topic:''
-}
+  title: "",
+  content: "",
+  topic: "",
+};
 
 export const userState = {
-    first_name:'',
-    last_name:'',
-    username:'',
-    email:'',
-}
-
-
-
-
+  first_name: "",
+  last_name: "",
+  username: "",
+  email: "",
+};

@@ -1,10 +1,9 @@
 .footer-link-nav {
-        margin: 3rem 4rem 4rem 3rem;
-        text-decoration: none;
-        font-size: 1rem;
-      
+  margin: 3rem 4rem 4rem 3rem;
+  text-decoration: none;
+  font-size: 1rem;
 }
 
 .footer-cta {
-    height: fit-content;
+  height: fit-content;
 }

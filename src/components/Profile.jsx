@@ -1,46 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import {axiosAuth} from '../api/axiosAuth'
-import {connect} from 'react-redux'
+import React, { useEffect, useState } from "react";
+import { axiosAuth } from "../api/axiosAuth";
+import { connect } from "react-redux";
 
 const Profile = () => {
+  const user_id = localStorage.getItem("user_id");
+  const [profile, setProfile] = useState({});
 
-    const user_id = localStorage.getItem('user_id')
-    const [profile, setProfile] = useState({})
+  useEffect(() => {
+    axiosAuth()
+      .get(`/auth/${user_id}`)
 
-    useEffect(() => {
-         axiosAuth()
-        .get(`/auth/${user_id}`)
-  
-             .then((res) => {
-                //  console.log(res.data)
-                 setProfile(res.data)
+      .then((res) => {
+        //  console.log(res.data)
+        setProfile(res.data);
+      })
+      .catch((err) => {
+        console.log(`Get User Post Error`, err);
+      });
+  }, []);
 
-        })
-        .catch((err) => {
-            console.log(`Get User Post Error`, err)
-        })
-    
-    }, [])
+  console.log(profile);
 
-    console.log(profile)
+  return (
+    <div className="profile-view-cta">
+      <h2>Profile</h2>
+      <p>First Name: {profile.first_name}</p>
+      <p>Last Name: {profile.last_name}</p>
+      <p>Email: {profile.email}</p>
+      <p>Username: {profile.username}</p>
+      <p>Password: {profile.password}</p>
+    </div>
+  );
+};
 
-    return (
-        <div className='profile-view-cta'>
-            <h2>Profile</h2>
-            <p>First Name: {profile.first_name}</p>
-            <p>Last Name: {profile.last_name}</p>
-            <p>Email: {profile.email}</p>
-            <p>Username: {profile.username}</p>
-            <p>Password: {profile.password}</p>
-        
-        </div>
-    )
-}
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
 
-const mapStateToProps = state => {
-    return {
-        ...state,
-    }
-}
-
-export default connect(mapStateToProps)(Profile)
+export default connect(mapStateToProps)(Profile);

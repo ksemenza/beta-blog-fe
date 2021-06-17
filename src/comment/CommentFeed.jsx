@@ -1,24 +1,22 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React from "react";
+import { connect } from "react-redux";
 
 const CommentFeed = () => {
+  const POST_ID = localStorage.getItem("post_id");
 
-    const POST_ID = localStorage.getItem('post_id')
+  console.log(POST_ID);
 
-    console.log(POST_ID)
+  return (
+    <div className="post-view-cta">
+      <h2>Comment Feed</h2>
+    </div>
+  );
+};
 
-    return (
-        <div className='post-view-cta'>
-            <h2>Comment Feed</h2>
-        
-        </div>
-    )
-}
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
 
-const mapStateToProps = state => {
-    return {
-        ...state,
-    }
-}
-
-export default connect(mapStateToProps)(CommentFeed)
+export default connect(mapStateToProps)(CommentFeed);
