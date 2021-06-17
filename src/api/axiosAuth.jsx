@@ -6,7 +6,7 @@ const URL_BE = DEPLOYED_URL || LOCAL_URL;
 export const axiosAuth = () => {
   const token = localStorage.getItem("token");
   return axios.create({
-    baseURL: `${DEPLOYED_URL}`,
+    baseURL: `${URL_BE}`,
     headers: {
       Authorization: token,
     },
