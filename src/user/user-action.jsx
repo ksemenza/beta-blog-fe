@@ -21,14 +21,14 @@ export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
-const URL_BE = DEPLOYED_URL || LOCAL_URL;
+// const URL_BE = DEPLOYED_URL || LOCAL_URL;
 
 //REGISTER USER START
 export const registerUser = (newUser, history) => (dispatch) => {
   console.log(`action register`);
   dispatch({ type: REGISTER_REQUEST });
   axios
-    .post(`${URL_BE}/auth/register`, newUser)
+    .post(`${DEPLOYED_URL}/auth/register`, newUser)
     .then((res) => {
       dispatch({ type: REGISTER_SUCCESS, payload: res.data });
       localStorage.setItem("token", res.data.token);
