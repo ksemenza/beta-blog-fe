@@ -59,6 +59,9 @@ const Comment = (props) => {
       });
   }, []);
 
+  console.log(postDetails);
+  console.log(postTitle);
+  console.log(postTitle);
 
   return (
     <div className="comment-cta">
@@ -79,35 +82,8 @@ const Comment = (props) => {
         <p>by: {postDetails.author}</p>
         <p>{postDetails.content}</p>
 
-        {postsComment ? (
-          <CommentAdd toggleAddComment={handleClick} />
-        ) : (
-          <div className="comment-list-cta">
-            {postsComment.length > 0 ? (
-              <div className="comment-list-wrap">
-                <div>
-                  {postsComment.map((comment) => (
-                    <div>
-                      {/* <CommentCard 
-                                                    key={comment.id}
-                                                    comment={comment.comment}
-                                                    author={comment.author}
-                                                /> */}
-                      <NavLink
-                        className="comment-link"
-                        to={`/comment/${comment.id}`}
-                      >
-                        View comment
-                      </NavLink>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <h6> No Comments </h6>
-            )}
-          </div>
-        )}
+        <CommentAdd toggleAddComment={handleClick} />
+  
 
         {postsComment.map((comment) => (
           <div>
@@ -115,7 +91,8 @@ const Comment = (props) => {
               key={comment.id}
               comment={comment.comment}
               author={comment.author}
-              post_id={comment.post_id}
+                    post_id={comment.post_id}
+                created_at={comment.created_at}
             />
 
             {/* <h2>{comment.author}</h2>
