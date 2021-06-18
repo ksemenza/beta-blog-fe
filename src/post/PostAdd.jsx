@@ -41,14 +41,12 @@ const PostAdd = (props) => {
   return (
     <div className="post-add-cta">
       <div className="post-add-form-cta">
-        <h3> Add New Post </h3>
-
         <form onSubmit={handleSubmitPost}>
-          <div className="input-label-wrap">
+          {/* <div className="input-label-wrap">
             <label htmlFor="title">Title</label>
             <input
               autoFocus
-              required
+            //   required
               className="post-input-title"
               type="text"
               name="title"
@@ -62,9 +60,8 @@ const PostAdd = (props) => {
           <div className="input-label-wrap">
             <label htmlFor="topic">topics</label>
             <input
-              required
+            //   required
               className="post-input"
-              required
               type="text"
               name="topic"
               id="topic"
@@ -72,27 +69,23 @@ const PostAdd = (props) => {
               onChange={handleChangePost}
               value={newPost.topic}
             />
-          </div>
+          </div> */}
 
           <div className="input-label-wrap">
-            <label htmlFor="content">Content</label>
             <textarea
               required
               className="post-textarea"
-              required
               type="textarea"
               name="content"
               id="content"
-              placeholder="Post Entry"
+              placeholder="Share Thoughts"
               onChange={handleChangePost}
               value={newPost.content}
             />
           </div>
-
-          <button type="submit">Submit</button>
+          <button type="submit">Share</button>
         </form>
 
-        {/* <Tag /> */}
       </div>
     </div>
   );

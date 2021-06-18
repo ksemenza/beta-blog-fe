@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import "../assets/css/comment.css";
-import moment from "moment";
+import moment from 'moment'
 
 
 const CommentCard = (props) => {
@@ -9,12 +9,13 @@ const CommentCard = (props) => {
 
   console.log(props);
 
+    let timeStamp
+    
   return (
     <div className="comment-card-cta">
       <h6> {props.author}</h6>
-      <p className="post_date_text">
-        {" "}
-        {moment(props.created_at).format("MMMM Do YYYY, h:mm a")}{" "}
+      <p>
+        <p>{moment(props.created_at).format("MMMM D YYYY, h:mm a")}</p>
       </p>
       <p> {props.comment} </p>
     </div>

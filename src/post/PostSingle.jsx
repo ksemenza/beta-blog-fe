@@ -49,9 +49,9 @@ const PostSingle = (props) => {
 
   return (
     <div className="post-single-cta">
-      <h2>{selectedPost.title}</h2>
-      <p>{selectedPost.content}</p>
-      <NavLink to={`/post/${postId}/details`}>back</NavLink>
+      {/* <h2>{selectedPost.title}</h2>
+      <p>{selectedPost.content}</p> */}
+      {/* <NavLink to={`/post/${postId}/details`}>back</NavLink> */}
 
       <button onClick={onClickEdit}>{editing ? "Back" : "Edit"} </button>
       {editing && selectedPost && (

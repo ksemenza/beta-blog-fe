@@ -4,7 +4,6 @@ import { axiosAuth } from "../api/axiosAuth";
 import PostAdd from "./PostAdd";
 import { NavLink } from "react-router-dom";
 import { USER_URL, DETAILS_URL, POST_URL } from "../constants/endpoints";
-import Comment from "../comment/Comment";
 import "../assets/css/post.css";
 import PostCard from "./PostCard";
 import { USER_ID, F_NAME } from "../constants/local_storage";
@@ -57,6 +56,7 @@ const Post = (props) => {
                       <PostCard
                         toggleEditPost={handleClick}
                         key={post.id}
+                        created_at = {post.created_at}
                         title={post.title}
                         content={post.content}
                         author={post.author}
@@ -80,7 +80,7 @@ const Post = (props) => {
                           Comment
                         </NavLink>
                       </div>
-                      <h6>Comments</h6>
+                  
                     </div>
                   ))}
                 </div>

@@ -12,6 +12,7 @@
     "dotenv": "^8.2.0",
     "history": "^5.0.0",
     "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
     "now": "^21.0.1",
     "prop-types": "^15.7.2",
     "ra-data-json-server": "^3.10.4",

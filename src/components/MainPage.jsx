@@ -5,12 +5,21 @@ import { connect } from "react-redux";
 import { POST_URL } from "../constants/endpoints";
 import Comment from "../comment/Comment";
 import "../assets/css/main-page.css";
-import moment from 'moment'
+import Feed from "../user_feed/Feed";
+import PostAdd from "../post/PostAdd";
 
 // RETURNS ALL POST IN SYSTEM
 const MainPage = (props) => {
   const [postList, setPostList] = useState([]);
-  const user_id = localStorage.getItem("user_id");
+    const user_id = localStorage.getItem("user_id");
+    const [addPost, setAddPost] = useState(false);
+
+              const handleClick = (e) => {
+                setAddPost(!addPost);
+              };
+
+
+
 
   useEffect(() => {
     axiosAuth()
@@ -24,30 +33,49 @@ const MainPage = (props) => {
       });
   }, []);
     
- 
-  return (
-    <div className="post-view-cta">
-      <h2></h2>
-      {postList.length > 0 ? (
-        <div className="post-list-cta">
-                  {postList.map((posts) => (
-              
-            <div className="main-cta-list">
-                  <h6 className="post_author_text"> {posts.author} </h6>
-                  <p className="post_date_text"> {moment(posts.created_at).format("MMMM D YYYY, h:mm a")} </p>
-              <p >{posts.title} </p>
-              <p className="post_content_text">{posts.content} </p>
-              <NavLink className="post-link" to={`/post/${posts.id}/details`}>
-                Comments
-              </NavLink>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <h5>Site under maintenance please check in later</h5>
-      )}
-    </div>
-  );
+
+    let timeStamp;
+              return (
+                <div className="post-view-cta">
+                  {/* <button onClick={handleClick}>
+                    {" "}
+                    {!addPost ? "New Post" : "Cancel"}{" "}
+                  </button> */}
+                  {addPost ? (
+                    <PostAdd toggleAddPost={handleClick} />
+                  ) : (
+                              <div>
+                                  <PostAdd/>
+                      {" "}
+                      {postList.length > 0 ? (
+                        <div className="post-list-cta">
+                          {postList.map((posts) => (
+                            <div>
+                              <Feed
+                                key={posts.id}
+                                title={posts.title}
+                                content={posts.content}
+                                author={posts.author}
+                                topic={posts.topic}
+                                created_at={posts.created_at}
+                              />
+                              <NavLink
+                                className="post-link"
+                                to={`/post/${posts.id}/details`}
+                              >
+                                Comments
+                              </NavLink>
+                            </div>
+                
+                          ))}
+                        </div>
+                      ) : (
+                        <h5>Site under maintenance please check in later</h5>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
 };
 
 const mapStateToProps = (state) => {

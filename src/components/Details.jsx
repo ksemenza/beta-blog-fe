@@ -38,7 +38,7 @@ const Details = (props) => {
       {posts.map((post, key) => (
         <div>
           <PostCard
-            // toggleEditPost={handleClick}
+            toggleEditPost={handleClick}
             key={post.id}
             title={post.title}
             content={post.content}

@@ -34,10 +34,9 @@ const PostEdit = (props) => {
 
   return (
     <div className="post-edit-cta">
-      <h2>Edit Post</h2>
-
+   
       <form onSubmit={submitEditPost}>
-        <div className="input-label-wrap">
+        {/* <div className="input-label-wrap">
           <label htmlFor="title">Title</label>
           <input
             autoFocus
@@ -65,7 +64,7 @@ const PostEdit = (props) => {
             onChange={onEditChange}
             value={selectedPost.topic}
           />
-        </div>
+        </div> */}
 
         <div className="input-label-wrap">
           <label htmlFor="content">Content</label>

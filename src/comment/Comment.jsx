@@ -64,8 +64,9 @@ const Comment = (props) => {
   console.log(postTitle);
 
   return (
-    <div className="comment-cta">
-      <h6>Comments</h6>
+      <div className="comment-cta">
+          
+      {/* <h6>Comments</h6>
       <div className="post-link">
         <NavLink className="post-link" to={`/post`}>
           Posts
@@ -73,13 +74,12 @@ const Comment = (props) => {
         <NavLink className="post-link" to={`/homepage`}>
           Back
         </NavLink>
-      </div>
+      </div> */}
 
       {/* <CommentFeed/> */}
       <div className="comment-list-wrap">
         {/* <button onClick={handleClick}> {!addComment ? 'Add Comment' : 'Cancel'} </button> */}
-        <h3> {postDetails.title} </h3>
-        <p>by: {postDetails.author}</p>
+        <h6>{postDetails.author}</h6>
         <p>{postDetails.content}</p>
 
         <CommentAdd toggleAddComment={handleClick} />

@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory, NavLink } from "react-router-dom";
 import { editPost } from "./post-action";
+import moment from "moment";
+
 
 const PostCard = (props) => {
 
@@ -10,7 +12,10 @@ const PostCard = (props) => {
   return (
     <div className="post-view-cta">
       <h5>{props.author} </h5>
-      
+      <p>
+        {" "}
+        <p> {moment(props.created_at).format("MMM D YYYY, h:mm a")} </p>
+      </p>
       <h6>{props.title}</h6>
       <p> {props.content} </p>
     </div>
