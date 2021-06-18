@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { POST_URL } from "../constants/endpoints";
 import Comment from "../comment/Comment";
 import "../assets/css/main-page.css";
+import moment from 'moment'
 
 // RETURNS ALL POST IN SYSTEM
 const MainPage = (props) => {
@@ -22,16 +23,19 @@ const MainPage = (props) => {
         console.log(`Get User Post Error`, err);
       });
   }, []);
-
+    
+ 
   return (
     <div className="post-view-cta">
       <h2></h2>
       {postList.length > 0 ? (
         <div className="post-list-cta">
-          {postList.map((posts) => (
+                  {postList.map((posts) => (
+              
             <div className="main-cta-list">
-              <h5 className="page_title">{posts.title} </h5>
-              <p className="post_author_text"> {posts.author} </p>
+                  <h6 className="post_author_text"> {posts.author} </h6>
+                  <p className="post_date_text"> {moment(posts.created_at).format("MMMM D YYYY, h:mm a")} </p>
+              <p >{posts.title} </p>
               <p className="post_content_text">{posts.content} </p>
               <NavLink className="post-link" to={`/post/${posts.id}/details`}>
                 Comments

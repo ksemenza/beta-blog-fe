@@ -18,8 +18,8 @@ const PostSingle = (props) => {
 
   const [selectedPost, setSelectedPost] = useState({
     id: "",
-    updatedAt: "",
-    updatedAt: "",
+    created_at: "",
+    updated_at: "",
     title: "",
     content: "",
     topic: "",
