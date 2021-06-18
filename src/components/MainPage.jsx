@@ -34,7 +34,6 @@ const MainPage = (props) => {
   }, []);
     
 
-    let timeStamp;
               return (
                 <div className="post-view-cta">
                   {/* <button onClick={handleClick}>

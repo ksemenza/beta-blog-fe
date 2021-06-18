@@ -15,7 +15,7 @@ const Homepage = (props) => {
         <Header />
       </div>
       <div className="home-wrap">
-        <h4 className="home-header">Welcome {fname}</h4>
+        {/* <h4 className="home-header">Welcome {fname}</h4> */}
         <MainPage />
         <UserDetails />
       </div>
