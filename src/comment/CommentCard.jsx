@@ -15,7 +15,7 @@ const CommentCard = (props) => {
     <div className="comment-card-cta">
       <h6> {props.author}</h6>
       <p>
-        <p>{moment(props.created_at).format("MMMM D YYYY, h:mm a")}</p>
+        <p>{moment(props.created_at).zone(+480).format("MMMM D YYYY, h:mm a")}</p>
       </p>
       <p> {props.comment} </p>
     </div>

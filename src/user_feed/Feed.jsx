@@ -32,8 +32,11 @@ const Feed = (props) => {
   return (
     <div className="feed-view-cta">
       <div className="main-cta-list">
-              <h6 className="post_author_text"> {props.author} </h6>
-              <p> {moment(props.created_at).format("MMM D YYYY, h:mm a")} </p>
+        <h6 className="post_author_text"> {props.author} </h6>
+        <p>
+          {" "}
+          {moment(props.created_at).zone(+480).format("MMM D YYYY, h:mm a")}{" "}
+        </p>
         {/* <p>{props.title} </p> */}
         <p className="post_content_text">{props.content} </p>
       </div>{" "}
