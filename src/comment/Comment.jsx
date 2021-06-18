@@ -59,9 +59,6 @@ const Comment = (props) => {
       });
   }, []);
 
-  console.log(postDetails);
-  console.log(postTitle);
-  console.log(postTitle);
 
   return (
     <div className="comment-cta">
