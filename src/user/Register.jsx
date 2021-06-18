@@ -50,6 +50,7 @@ function Register(props) {
         <div className="field-wrap last-name-field">
           <label htmlFor="last_name">Last Name </label>
           <input
+            autoFocus
             required
             type="text"
             name="last_name"
@@ -63,28 +64,28 @@ function Register(props) {
         <div className="field-wrap username-field">
           <label htmlFor="username">Username</label>
           <input
+            autoFocus
             required
             type="text"
             name="username"
             id="username"
             placeholder="Username"
-            onFocus={onFocus}
             onChange={handleChange}
-            value={"" || newUser.username}
+            value={newUser.username}
           />
         </div>
         {/*START OF EMAIL FIELD*/}
         <div className="field-wrap email-field">
           <label htmlFor="Email"> Email </label>
           <input
+          autoFocus
             required
             type="email"
             name="email"
             id="email"
             placeholder="Email"
-            onFocus={onFocus}
             onChange={handleChange}
-            value={newUser.email || ""}
+            value={newUser.email}
           />
         </div>
 
@@ -92,12 +93,12 @@ function Register(props) {
         <div className="field-wrap password-field">
           <label htmlFor="password">Password</label>
           <input
+            autoFocus
             required
             type="password"
             name="password"
             id="password"
             placeholder="Password"
-            onFocus={onFocus}
             onChange={handleChange}
             value={newUser.password}
           />

@@ -92,7 +92,7 @@ const PostAdd = (props) => {
           <button type="submit">Submit</button>
         </form>
 
-        <Tag />
+        {/* <Tag /> */}
       </div>
     </div>
   );
