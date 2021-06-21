@@ -71,7 +71,7 @@ function Register(props) {
             id="username"
             placeholder="Username"
             onChange={handleChange}
-            value={newUser.username.toLowerCase()}
+            value={newUser.username}
           />
         </div>
         {/*START OF EMAIL FIELD*/}

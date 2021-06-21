@@ -49,7 +49,7 @@ const Login = (props) => {
                 id="username"
                 placeholder="Username"
                 onChange={handleChange}
-                value={user.username.toLowerCase()}
+                value={user.username}
               />
             </div>
 
