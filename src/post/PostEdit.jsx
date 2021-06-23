@@ -34,7 +34,6 @@ const PostEdit = (props) => {
 
   return (
     <div className="post-edit-cta">
-   
       <form onSubmit={submitEditPost}>
         {/* <div className="input-label-wrap">
           <label htmlFor="title">Title</label>

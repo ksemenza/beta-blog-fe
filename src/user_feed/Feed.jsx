@@ -3,14 +3,13 @@ import { connect } from "react-redux";
 import { axiosAuth } from "../api/axiosAuth";
 import moment from "moment";
 
-import {
-  DETAILS_URL,
-  POST_URL,
-} from "../constants/endpoints";
+import { DETAILS_URL, POST_URL } from "../constants/endpoints";
 
 const Feed = (props) => {
-    let commentList;
+  let commentList;
   const [postsComment, setPostsComment] = useState([]);
+
+  console.log(props.user_id);
 
   useEffect(() => {
     axiosAuth()
@@ -35,7 +34,9 @@ const Feed = (props) => {
         <h6 className="post_author_text"> {props.author} </h6>
         <p>
           {" "}
-          {moment(props.created_at).zone(+480).format("MMM D YYYY, h:mm a")}{" "}
+          {moment(props.created_at)
+            .zone(+480)
+            .format("MMM D YYYY, h:mm a")}{" "}
         </p>
         {/* <p>{props.title} </p> */}
         <p className="post_content_text">{props.content} </p>

@@ -85,7 +85,6 @@ const PostAdd = (props) => {
           </div>
           <button type="submit">Share</button>
         </form>
-
       </div>
     </div>
   );

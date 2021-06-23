@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { axiosAuth } from "../api/axiosAuth";
 import { connect } from "react-redux";
 
-
 const Profile = (props) => {
   const USER_ID = localStorage.getItem("user_id");
   const [profile, setProfile] = useState({});
@@ -30,8 +29,6 @@ const Profile = (props) => {
       <p>Email: {profile.email}</p>
       <p>Username: {profile.username}</p>
       <p>Password: {profile.password}</p>
-
-
     </div>
   );
 };

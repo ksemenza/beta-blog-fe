@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import "../assets/css/home.css";
 import MainPage from "./MainPage";
 import UserDetails from "../details/UserDetails";
+import PostList from "../refactor/PostList";
 
 const Homepage = (props) => {
   let fname = localStorage.getItem("fname");

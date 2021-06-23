@@ -4,10 +4,8 @@ import { useHistory, NavLink } from "react-router-dom";
 import { editPost } from "./post-action";
 import moment from "moment";
 
-
 const PostCard = (props) => {
-
-    console.log(props)
+  console.log(props);
 
   return (
     <div className="post-view-cta">

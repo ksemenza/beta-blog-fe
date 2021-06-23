@@ -56,7 +56,7 @@ const Post = (props) => {
                       <PostCard
                         toggleEditPost={handleClick}
                         key={post.id}
-                        created_at = {post.created_at}
+                        created_at={post.created_at}
                         title={post.title}
                         content={post.content}
                         author={post.author}
@@ -80,7 +80,6 @@ const Post = (props) => {
                           Comment
                         </NavLink>
                       </div>
-                  
                     </div>
                   ))}
                 </div>

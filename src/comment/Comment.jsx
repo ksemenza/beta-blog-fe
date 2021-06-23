@@ -64,8 +64,7 @@ const Comment = (props) => {
   console.log(postTitle);
 
   return (
-      <div className="comment-cta">
-          
+    <div className="comment-cta">
       {/* <h6>Comments</h6>
       <div className="post-link">
         <NavLink className="post-link" to={`/post`}>
@@ -83,7 +82,6 @@ const Comment = (props) => {
         <p>{postDetails.content}</p>
 
         <CommentAdd toggleAddComment={handleClick} />
-  
 
         {postsComment.map((comment) => (
           <div>
@@ -91,8 +89,8 @@ const Comment = (props) => {
               key={comment.id}
               comment={comment.comment}
               author={comment.author}
-                    post_id={comment.post_id}
-                created_at={comment.created_at}
+              post_id={comment.post_id}
+              created_at={comment.created_at}
             />
 
             {/* <h2>{comment.author}</h2>

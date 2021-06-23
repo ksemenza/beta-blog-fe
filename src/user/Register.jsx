@@ -27,6 +27,8 @@ function Register(props) {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
+  let usernameCase = newUser.username;
+
   return (
     <div className="main-cta register-cta">
       <h1 className="page-title">Register</h1>
@@ -71,14 +73,14 @@ function Register(props) {
             id="username"
             placeholder="Username"
             onChange={handleChange}
-            value={newUser.username}
+            value={usernameCase}
           />
         </div>
         {/*START OF EMAIL FIELD*/}
         <div className="field-wrap email-field">
           <label htmlFor="Email"> Email </label>
           <input
-          autoFocus
+            autoFocus
             required
             type="email"
             name="email"
