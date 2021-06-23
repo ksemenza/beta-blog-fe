@@ -13,15 +13,12 @@ const Homepage = (props) => {
   return (
     <div className="home-cta">
       <div className="title-nav-wrap">
-        <Header />
       </div>
       <div className="home-wrap">
         {/* <h4 className="home-header">Welcome {fname}</h4> */}
         <MainPage />
         <UserDetails />
       </div>
-
-      <Footer />
     </div>
   );
 };
