@@ -12,8 +12,7 @@
   margin-top: 15rem;
   min-height: 70rem;
   max-height: fit-content;
-
-
+  height: 100%;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

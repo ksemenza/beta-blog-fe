@@ -35,36 +35,6 @@ const PostEdit = (props) => {
   return (
     <div className="post-edit-cta">
       <form onSubmit={submitEditPost}>
-        {/* <div className="input-label-wrap">
-          <label htmlFor="title">Title</label>
-          <input
-            autoFocus
-            required
-            className="post-input-title"
-            type="text"
-            name="title"
-            id="title"
-            placeholder={props.post.title}
-            onChange={onEditChange}
-            value={selectedPost.title}
-          />
-        </div>
-
-        <div className="input-label-wrap">
-          <label htmlFor="topic">topics</label>
-          <input
-            required
-            className="post-input"
-            required
-            type="text"
-            name="topic"
-            id="topic"
-            placeholder={props.post.topics}
-            onChange={onEditChange}
-            value={selectedPost.topic}
-          />
-        </div> */}
-
         <div className="input-label-wrap">
           <label htmlFor="content">Content</label>
           <textarea

@@ -29,7 +29,6 @@ const Login = (props) => {
 
   return (
     <div className="main-cta login-cta">
-      {/* <h1 className="page-title">Beta Blog What's on Your Nog?</h1> */}
       <button onClick={handleClick}>
         {!account ? "Create account" : "Back to login"}
       </button>

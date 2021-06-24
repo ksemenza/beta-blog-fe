@@ -9,8 +9,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import userReducer from "./user/user-reducer";
 import * as serviceWorker from "./serviceWorker";
-import Header from './components/Header'
-import Footer from './components/Footer'
+
 
 const store = createStore(userReducer, applyMiddleware(thunk, logger));
 

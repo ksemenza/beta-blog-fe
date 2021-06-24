@@ -3,18 +3,21 @@ import { NavLink } from "react-router-dom";
 import { axiosAuth } from "../api/axiosAuth";
 import { connect } from "react-redux";
 import { POST_URL } from "../constants/endpoints";
-import Comment from "../comment/Comment";
 import "../assets/css/main-page.css";
 import Feed from "../user_feed/Feed";
 import PostAdd from "../post/PostAdd";
-import PostView from "../refactor/PostView";
-import PostList from "../refactor/PostList";
+import Comment from "../comment/Comment";
+
 
 // RETURNS ALL POST IN SYSTEM
 const MainPage = (props) => {
   const [postList, setPostList] = useState([]);
+  const [postID, setPostID] = useState([])
   const user_id = localStorage.getItem("user_id");
   const [addPost, setAddPost] = useState(false);
+
+  
+        let postLister;
 
   const handleClick = (e) => {
     setAddPost(!addPost);
@@ -23,22 +26,25 @@ const MainPage = (props) => {
   useEffect(() => {
     axiosAuth()
       .get(`${POST_URL}`)
-
       .then((res) => {
-        setPostList(res.data);
+
+        postLister = res.data
+        console.log(postLister)
+        setPostList(postLister);
       })
       .catch((err) => {
         console.log(`Get User Post Error`, err);
       });
   }, []);
 
+  let newPostList = [...postList]
+  let PostIds = { ...newPostList }
+
+  console.log(postLister)
+  console.log(postID)
+
   return (
     <div className="post-view-cta">
-      {/* <button onClick={handleClick}>
-                    {" "}
-                    {!addPost ? "New Post" : "Cancel"}{" "}
-                  </button> */}
-
       {addPost ? (
         <PostAdd toggleAddPost={handleClick} />
       ) : (
@@ -49,20 +55,14 @@ const MainPage = (props) => {
               {postList.map((posts) => (
                 <div>
                   <Feed
-                    key={posts.id}
-                    title={posts.title}
-                    content={posts.content}
+                    post_id={posts.id}
                     author={posts.author}
-                    topic={posts.topic}
-                    created_at={posts.created_at}
-                    user_id={user_id}
+                    content={posts.content}
                   />
                   <NavLink
                     className="post-link"
-                    to={`/post/${posts.id}/details`}
-                  >
-                    Comments
-                  </NavLink>
+                    to={`/comment/${posts.id}/details`}
+                  ></NavLink>
                 </div>
               ))}
             </div>
