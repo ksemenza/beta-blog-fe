@@ -3,6 +3,7 @@ import Register from "./Register";
 import { loginUser } from "./user-action";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
+import '../assets/css/login.css'
 
 const Login = (props) => {
   const [account, setAccount] = useState(false);
@@ -24,9 +25,10 @@ const Login = (props) => {
     setAccount(!account);
   };
 
+  let usernameCase = user.username.toLowerCase();
+
   return (
     <div className="main-cta login-cta">
-      <h1 className="page-title">Beta Blog What's on Your Nog?</h1>
       <button onClick={handleClick}>
         {!account ? "Create account" : "Back to login"}
       </button>
@@ -49,7 +51,7 @@ const Login = (props) => {
                 id="username"
                 placeholder="Username"
                 onChange={handleChange}
-                value={user.username}
+                value={usernameCase}
               />
             </div>
 

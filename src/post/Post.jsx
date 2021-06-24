@@ -27,9 +27,8 @@ const Post = (props) => {
       .get(`${USER_URL}/${USER_ID}${DETAILS_URL}`)
 
       .then((res) => {
-        postList = res.data.posts;
-        setUserPosts(postList);
-        console.log(userPosts);
+        // console.log(res.data)
+        setUserPosts(res.data)
       })
       .catch((err) => {
         console.log(`Get User Post Error`, err);
@@ -56,7 +55,7 @@ const Post = (props) => {
                       <PostCard
                         toggleEditPost={handleClick}
                         key={post.id}
-                        created_at = {post.created_at}
+                        created_at={post.created_at}
                         title={post.title}
                         content={post.content}
                         author={post.author}
@@ -80,7 +79,6 @@ const Post = (props) => {
                           Comment
                         </NavLink>
                       </div>
-                  
                     </div>
                   ))}
                 </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { addPost } from "./post-action";
 import { connect } from "react-redux";
 import Tag from "../tag/Tag";
@@ -26,7 +26,7 @@ const PostAdd = (props) => {
 
   // Handle add new post submit
   const handleSubmitPost = (e) => {
-    // e.preventDefault()
+    
     props.addPost(newPost);
     props.toggleAddPost();
     setTimeout(() => {
@@ -35,42 +35,17 @@ const PostAdd = (props) => {
   };
 
   const handleChangePost = (e) => {
+    e.preventDefault()
     setNewPost({ ...newPost, [e.target.name]: e.target.value });
+    setTimeout(() => {
+      
+    }, 1500)
   };
 
   return (
     <div className="post-add-cta">
       <div className="post-add-form-cta">
         <form onSubmit={handleSubmitPost}>
-          {/* <div className="input-label-wrap">
-            <label htmlFor="title">Title</label>
-            <input
-              autoFocus
-            //   required
-              className="post-input-title"
-              type="text"
-              name="title"
-              id="title"
-              placeholder="Title"
-              onChange={handleChangePost}
-              value={newPost.title}
-            />
-          </div>
-
-          <div className="input-label-wrap">
-            <label htmlFor="topic">topics</label>
-            <input
-            //   required
-              className="post-input"
-              type="text"
-              name="topic"
-              id="topic"
-              placeholder="Post Entry"
-              onChange={handleChangePost}
-              value={newPost.topic}
-            />
-          </div> */}
-
           <div className="input-label-wrap">
             <textarea
               required
@@ -83,9 +58,9 @@ const PostAdd = (props) => {
               value={newPost.content}
             />
           </div>
-          <button type="submit">Share</button>
+      
+            <button type="submit">Share</button>
         </form>
-
       </div>
     </div>
   );

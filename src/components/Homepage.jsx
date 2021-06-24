@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import "../assets/css/home.css";
 import MainPage from "./MainPage";
 import UserDetails from "../details/UserDetails";
+import PostList from "../refactor/PostList";
 
 const Homepage = (props) => {
   let fname = localStorage.getItem("fname");
@@ -12,15 +13,11 @@ const Homepage = (props) => {
   return (
     <div className="home-cta">
       <div className="title-nav-wrap">
-        <Header />
       </div>
       <div className="home-wrap">
         {/* <h4 className="home-header">Welcome {fname}</h4> */}
         <MainPage />
-        <UserDetails />
       </div>
-
-      <Footer />
     </div>
   );
 };

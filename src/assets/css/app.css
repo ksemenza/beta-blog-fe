@@ -1,10 +1,19 @@
 .App {
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
+  min-height: 70rem;
+  max-height: fit-content;
+  height: 100%;
 }
 
+.app-main-page {
+  margin-top: 15rem;
+  min-height: 70rem;
+  max-height: fit-content;
+  height: 100%;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

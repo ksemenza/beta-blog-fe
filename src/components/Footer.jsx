@@ -23,7 +23,8 @@ const Footer = (props) => {
         </nav>
       </div>
 
-      <h5>Footer</h5>
+      <p>Nogging Blogging</p>
+      <p>Guin Tech Productions © 2021</p>
     </div>
   );
 };
