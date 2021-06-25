@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Route, Switch, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import Homepage from "./components/HomePage";
 import PostSingle from "./post/PostSingle";
 import CommentCard from "./comment/CommentCard";
 import Post from "./post/Post";
@@ -12,6 +11,7 @@ import Details from "./components/Details";
 import Profile from "./components/Profile";
 import Header from './components/Header'
 import Footer from './components/Footer.jsx'
+import Homepage from "./components/Homepage";
 
 function App(props) {
   const USER_ID = localStorage.getItem("user_id");
