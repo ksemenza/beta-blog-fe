@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Header from "./Header";
 import Footer from "./Footer";
 import "../assets/css/home.css";
-import HomePage from "./HomePage";
+import HomePage from "./Homepage";
 
 const MainPage = (props) => {
   let first_name = localStorage.getItem("first_name");

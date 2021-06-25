@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { addPost } from "./post-action";
+import { addPost } from "../user_state/post-action";
 import { connect } from "react-redux";
 import Tag from "../tag/Tag";
 

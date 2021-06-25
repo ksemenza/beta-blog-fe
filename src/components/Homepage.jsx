@@ -5,11 +5,11 @@ import { connect } from "react-redux";
 import { POST_URL, USER_URL, COMMENT_URL } from "../constants/endpoints";
 import "../assets/css/main-page.css";
 import Feed from "../user_feed/Feed";
-import PostAdd from "../post/PostAdd";
+import PostAdd from "../user_feed/PostAdd";
 
 
 // RETURNS ALL POST IN SYSTEM
-const HomePage = (props) => {
+const Homepage = (props) => {
   const [postList, setPostList] = useState([]);
   const [commentList, setCommentList] = useState([])
   const [firstName, setFirstName] = useState('')
@@ -78,4 +78,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(Homepage);
