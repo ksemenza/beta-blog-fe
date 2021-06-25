@@ -1,8 +1,8 @@
 // User's Values
 export const USER_ID = localStorage.getItem("user_id");
 export const USERNAME = localStorage.getItem("username");
-export const F_NAME = localStorage.getItem("fname");
-export const L_NAME = localStorage.getItem("lname");
+export const F_NAME = localStorage.getItem("first_name");
+export const L_NAME = localStorage.getItem("last_name");
 export const EMAIL = localStorage.getItem("email");
 
 // Post's Values

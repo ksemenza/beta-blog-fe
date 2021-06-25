@@ -34,6 +34,9 @@ export const getPostDetails = (posts) => (dispatch) => {
   axiosAuth()
     .get(`${USER_URL}${USER_ID}${DETAILS_URL}`, posts)
     .then((res) => {
+
+      
+
       dispatch({ type: POST_SUC, payload: res.data });
     })
     .catch((err) => {

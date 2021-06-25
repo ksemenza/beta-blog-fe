@@ -9,6 +9,7 @@ const PostCard = (props) => {
 
   return (
     <div className="post-view-cta">
+      <p></p>
       <h5>{props.author} </h5>
       <p>
         {" "}

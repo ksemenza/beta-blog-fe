@@ -5,8 +5,8 @@ import { axiosAuth } from "../api/axiosAuth";
 
 const PostView = (props) => {
   const userID = props.user_id;
-  const [userFName, setUserFName] = useState("");
-  const [userLName, setUserLName] = useState("");
+  const [userfirst_name, setUserfirst_name] = useState("");
+  const [userlast_name, setUserlast_name] = useState("");
 
   // Retrieving User's Full name for post view
   useEffect(() => {
@@ -14,8 +14,8 @@ const PostView = (props) => {
       .get(`/auth/${userID}`)
       .then((res) => {
         //  console.log(res.data)
-        setUserFName(res.data.first_name);
-        setUserLName(res.data.last_name);
+        setUserfirst_name(res.data.first_name);
+        setUserlast_name(res.data.last_name);
       })
       .catch((err) => {
         console.log(`Get User Name Error`, err);
@@ -26,7 +26,7 @@ const PostView = (props) => {
     <div className="post-view-cta">
       <h6 className="username-header">
         {" "}
-        {userFName} {userLName}{" "}
+        {userfirst_name} {userlast_name}{" "}
       </h6>
       <p> {props.author} </p>
       <p> {moment(props.created_at)} </p>

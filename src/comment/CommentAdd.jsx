@@ -6,13 +6,14 @@ import { connect } from "react-redux";
 import { COMMENT_URL } from "../constants/endpoints";
 
 const CommentAdd = (props) => {
-  console.log(props);
+
+  // console.log(props);
+
   const POST_ID = localStorage.getItem("post_id");
   const USERNAME = localStorage.getItem("username");
 
-  console.log(POST_ID);
+  // console.log(props);
 
-  console.log(props);
 
   const history = useHistory();
   const [newComment, setNewComment] = useState({
@@ -23,21 +24,17 @@ const CommentAdd = (props) => {
 
   // Handle add new comment submit
   const handleSubmitComment = (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     props.addComment(newComment);
-
-    props.toggleAddComment();
-
     setTimeout(() => {
       e.target.reset();
     }, 1500);
   };
 
   const handleChangeComment = (e) => {
-    setNewComment({ ...newComment, [e.target.name]: e.target.value });
+    setNewComment({ ...newComment, [e.target.name]: e.target.value })
+        setTimeout(() => {}, 1500);
   };
-
-  console.log(newComment);
 
   return (
     <div className="comment-add-cta">

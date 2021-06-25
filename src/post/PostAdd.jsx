@@ -14,8 +14,6 @@ const PostAdd = (props) => {
   const USER_ID = localStorage.getItem("user_id");
   const USERNAME = localStorage.getItem("username");
 
-  const history = useHistory();
-
   const [newPost, setNewPost] = useState({
     author: USERNAME,
     title: "",
@@ -26,7 +24,6 @@ const PostAdd = (props) => {
 
   // Handle add new post submit
   const handleSubmitPost = (e) => {
-    
     props.addPost(newPost);
     props.toggleAddPost();
     setTimeout(() => {
