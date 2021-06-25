@@ -5,11 +5,8 @@ import { connect } from "react-redux";
 import Tag from "../tag/Tag";
 
 const PostAdd = (props) => {
-  // console.log(props)
+  console.log(props)
 
-  const selectedTags = (tags) => {
-    // console.log(tags);
-  };
 
   const USER_ID = localStorage.getItem("user_id");
   const USERNAME = localStorage.getItem("username");

@@ -24,14 +24,15 @@ const CommentAdd = (props) => {
 
   // Handle add new comment submit
   const handleSubmitComment = (e) => {
-    e.preventDefault()
     props.addComment(newComment);
     setTimeout(() => {
       e.target.reset();
     }, 1500);
   };
 
+
   const handleChangeComment = (e) => {
+    e.preventDefault()
     setNewComment({ ...newComment, [e.target.name]: e.target.value })
         setTimeout(() => {}, 1500);
   };
