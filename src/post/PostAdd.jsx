@@ -5,16 +5,11 @@ import { connect } from "react-redux";
 import Tag from "../tag/Tag";
 
 const PostAdd = (props) => {
-  // console.log(props)
+  console.log(props)
 
-  const selectedTags = (tags) => {
-    // console.log(tags);
-  };
 
   const USER_ID = localStorage.getItem("user_id");
   const USERNAME = localStorage.getItem("username");
-
-  const history = useHistory();
 
   const [newPost, setNewPost] = useState({
     author: USERNAME,
@@ -26,7 +21,6 @@ const PostAdd = (props) => {
 
   // Handle add new post submit
   const handleSubmitPost = (e) => {
-    
     props.addPost(newPost);
     props.toggleAddPost();
     setTimeout(() => {

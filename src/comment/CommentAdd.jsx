@@ -4,49 +4,44 @@ import { useHistory } from "react-router-dom";
 import { addComment } from "./comment-action";
 import { connect } from "react-redux";
 import { COMMENT_URL } from "../constants/endpoints";
+import { USERNAME } from '../constants/local_storage'
+import '../assets/css/comment.css'
 
 const CommentAdd = (props) => {
-  console.log(props);
-  const POST_ID = localStorage.getItem("post_id");
-  const USERNAME = localStorage.getItem("username");
 
-  console.log(POST_ID);
-
-  console.log(props);
+  console.log(props.post_id)
 
   const history = useHistory();
   const [newComment, setNewComment] = useState({
     author: USERNAME,
     comment: "",
-    post_id: POST_ID,
+    post_id: props.post_id
   });
+
+  console.log(props.post_id)
 
   // Handle add new comment submit
   const handleSubmitComment = (e) => {
-    // e.preventDefault()
     props.addComment(newComment);
-
-    props.toggleAddComment();
-
-    setTimeout(() => {
-      e.target.reset();
-    }, 1500);
+    // setTimeout(() => {
+    //   e.target.reset();
+    // }, 1500);
   };
+
 
   const handleChangeComment = (e) => {
-    setNewComment({ ...newComment, [e.target.name]: e.target.value });
+    e.preventDefault()
+    setNewComment({ ...newComment, [e.target.name]: e.target.value })
+        setTimeout(() => {}, 1500);
   };
-
-  console.log(newComment);
-
+  
+  console.log(newComment)
   return (
     <div className="comment-add-cta">
       <div className="comment-add-form-cta">
-        <form onSubmit={handleSubmitComment}>
+        <form className="comment-add-form" onSubmit={handleSubmitComment}>
           <div className="input-label-wrap">
-            <label htmlFor="comment">Comment</label>
             <textarea
-              autoFocus
               required
               className="comment-textarea"
               required

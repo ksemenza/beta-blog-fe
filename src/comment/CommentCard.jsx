@@ -8,12 +8,9 @@ const CommentCard = (props) => {
 
   console.log(props);
 
-  
-
-  let timeStamp;
-
   return (
     <div className="comment-card-cta">
+      <p> {props.post_id} </p>
       <h6>
         {moment(props.created_at)
           .zone(+480)
