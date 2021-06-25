@@ -5,12 +5,14 @@ import Footer from "./Footer";
 import "../assets/css/home.css";
 import HomePage from "./HomePage";
 
-import PostList from "../refactor/PostList";
-
 const MainPage = (props) => {
   let first_name = localStorage.getItem("first_name");
   let last_name = localStorage.getItem("last_name");
-  let user_id = localStorage.getItem("user_id");
+  let user_id = localStorage.getItem("userID");
+
+  // console.log(first_name, last_name, user_id)
+
+  console.log(props)
 
   return (
     <div className="home-cta">

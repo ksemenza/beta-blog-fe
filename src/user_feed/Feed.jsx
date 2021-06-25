@@ -4,19 +4,21 @@ import { axiosAuth } from "../api/axiosAuth";
 import moment from "moment";
 import CommentCard from "../comment/CommentCard";
 import CommentAdd from "../comment/CommentAdd";
+import '../assets/css/feed.css'
 
 import { COMMENT_URL, POST_URL } from "../constants/endpoints";
 
 const Feed = (props) => {
   const [postsComment, setPostsComment] = useState([]);
-  const [postID, setPostID] = useState([]);
+  const [postID, setPostID] = useState();
   const [activeUsername, setActiveUsername] = useState([]);
 
   const first_name = localStorage.getItem("first_name");
+  const user_id = localStorage.getItem("user_id");
+  const username = localStorage.getItem("username");
 
-  console.log(first_name);
+  console.log(props)
 
-  console.log(props);
 
   useEffect(() => {
     axiosAuth()
@@ -25,14 +27,13 @@ const Feed = (props) => {
         console.log(res.data.posts.comments);
         setPostsComment(res.data.posts.comments);
         setActiveUsername(res.data.posts.user_id);
-        setPostID(res.data.posts.id);
       })
       .catch((err) => {
         console.log(`Get User Post Error`, err);
       });
   }, []);
 
-  // console.log(postsComment)
+  console.log(postID)
 
   return (
     <div className="feed-view-cta">
@@ -48,10 +49,11 @@ const Feed = (props) => {
       </div>
       <div className="post-comment-map">
         {/* <PostComment/> */}
-        <CommentAdd user_id={activeUsername} post_id={props.post_id} />
 
+        <h6>Comments</h6>
+        <CommentAdd post_id={props.post_id} />
         {postsComment.map((comments) => (
-          <div>
+          <div className="comment-card-list-cta">
             <CommentCard
               comment_id={comments.id}
               author={comments.author}

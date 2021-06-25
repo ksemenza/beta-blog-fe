@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { axiosAuth } from "../api/axiosAuth";
 import { connect } from "react-redux";
-import { POST_URL, COMMENT_URL } from "../constants/endpoints";
+import { POST_URL, USER_URL, COMMENT_URL } from "../constants/endpoints";
 import "../assets/css/main-page.css";
 import Feed from "../user_feed/Feed";
 import PostAdd from "../post/PostAdd";
@@ -12,11 +12,13 @@ import PostAdd from "../post/PostAdd";
 const HomePage = (props) => {
   const [postList, setPostList] = useState([]);
   const [commentList, setCommentList] = useState([])
-  const user_id = localStorage.getItem("user_id");
-  const first_name = localStorage.getItem("first_name")
-  const last_name = localStorage.getItem("last_name")
-
-  console.log(props)
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [fullName, setFullName] = useState('')
+ 
+  const user_id = localStorage.getItem('user_id')
+  const first_name = localStorage.getItem('first_name')
+  const last_name = localStorage.getItem('last_name')
 
   useEffect(() => {
     axiosAuth()
@@ -24,7 +26,6 @@ const HomePage = (props) => {
       .then((res) => {
 
       let  postLister = res.data
-        console.log(postLister)
         setPostList(postLister);
       })
       .catch((err) => {
@@ -34,13 +35,14 @@ const HomePage = (props) => {
 
   useEffect(() => {
     axiosAuth()
-      .get(`${COMMENT_URL}/${postList.id}/details`)
+      .get(`${USER_URL}/${user_id}`)
       .then((res) => {
-        let commentLister = res.data.posts.comments
-        console.log(commentLister)
-        setCommentList(commentLister)
+        console.log(res.data)
+        setFirstName(res.data.first_name)
+        setLastName(res.data.last_name)
     } )
   }, [])
+
 
   return (
     <div className="post-view-cta">
