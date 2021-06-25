@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { editPost } from "../post/post-action";
+import { editPost } from "../user_state/post-action";
 import { connect } from "react-redux";
 
 const PostEdit = (props) => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { axiosAuth } from "../api/axiosAuth";
+import { Link } from 'react-router-dom'
 import moment from "moment";
 import CommentCard from "../comment/CommentCard";
 import CommentAdd from "../comment/CommentAdd";
@@ -33,8 +34,6 @@ const Feed = (props) => {
       });
   }, []);
 
-  console.log(postID)
-
   return (
     <div className="feed-view-cta">
       <div className="main-cta-list">
@@ -44,12 +43,9 @@ const Feed = (props) => {
             .zone(+480)
             .format("MMMM D YYYY, h:mm a")}
         </h6>
-        {/* <p>{props.title} </p> */}
         <p className="post_content_text">{props.content} </p>
       </div>
       <div className="post-comment-map">
-        {/* <PostComment/> */}
-
         <h6>Comments</h6>
         <CommentAdd post_id={props.post_id} />
         {postsComment.map((comments) => (

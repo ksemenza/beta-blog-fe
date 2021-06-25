@@ -1,17 +1,15 @@
 import * as React from "react";
 import { Route, Switch, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import PostSingle from "./post/PostSingle";
 import CommentCard from "./comment/CommentCard";
-import Post from "./post/Post";
 import Login from "./user/Login";
 import PrivateRouter from "./utils/PrivateRouter";
 import "./assets/css/app.css";
-import Details from "./components/Details";
 import Profile from "./components/Profile";
 import Header from './components/Header'
 import Footer from './components/Footer.jsx'
 import Homepage from "./components/Homepage";
+import PostCard from "./user_feed/PostCard";
 
 function App(props) {
   const USER_ID = localStorage.getItem("user_id");
@@ -22,10 +20,8 @@ function App(props) {
       <div className='app-main-page'>
         <Route exact path="/" component={Login} />
         <PrivateRouter exact path="/homepage" component={Homepage} />
-        <PrivateRouter exact path="/post" component={Post} exact />
-        <PrivateRouter exact path={`/auth/:id/details`} component={Details} />
         <PrivateRouter exact path={`/auth/:id`} component={Profile} />
-        <PrivateRouter exact path="/post/:id" component={PostSingle} exact />
+        <PrivateRouter exact path={`/post/:id`} component={PostCard} />
         <PrivateRouter
           exact
           path="/comment/:id"

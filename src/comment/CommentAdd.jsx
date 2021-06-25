@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { axiosAuth } from "../api/axiosAuth";
 import { useHistory } from "react-router-dom";
-import { addComment } from "./comment-action";
+import { addComment } from "../user_state/comment-action";
 import { connect } from "react-redux";
 import { COMMENT_URL } from "../constants/endpoints";
 import { USERNAME } from '../constants/local_storage'
@@ -23,9 +23,9 @@ const CommentAdd = (props) => {
   // Handle add new comment submit
   const handleSubmitComment = (e) => {
     props.addComment(newComment);
-    // setTimeout(() => {
-    //   e.target.reset();
-    // }, 1500);
+    setTimeout(() => {
+      e.target.reset();
+    }, 1500);
   };
 
 

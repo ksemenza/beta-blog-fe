@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory, NavLink } from "react-router-dom";
-import { editPost } from "./post-action";
+import { editPost } from "../user_state/post-action";
 import moment from "moment";
 
 const PostCard = (props) => {

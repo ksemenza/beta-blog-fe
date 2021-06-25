@@ -1,9 +1,10 @@
 .comment-card-cta {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   border: 1px dashed green;
   padding: 2.5rem;
   width: 40rem;
+  margin: 0 auto;
 }
 
 
@@ -15,8 +16,7 @@
 
 .comment-add-form {
   display: flex;
-  margin-bottom: 2rem;
-
+  margin: 2rem auto;
   
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { editComment } from "./comment-action";
+import { editComment } from "../user_state/comment-action";
 import { connect } from "react-redux";
 
 const CommentEdit = (props) => {

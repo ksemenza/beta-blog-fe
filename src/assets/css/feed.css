@@ -1,3 +1,7 @@
 .comment-card-list-cta {
+    display: flex;
+    flex-direction: column-reverse;
+    align-content: center;
     margin: 0.5rem;
 }
+
