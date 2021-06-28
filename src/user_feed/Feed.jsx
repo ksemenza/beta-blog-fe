@@ -8,6 +8,7 @@ import CommentAdd from "../comment/CommentAdd";
 import '../assets/css/feed.css'
 
 import { COMMENT_URL, POST_URL } from "../constants/endpoints";
+import PostCard from "./PostCard";
 
 const Feed = (props) => {
   const [postsComment, setPostsComment] = useState([]);
@@ -37,13 +38,12 @@ const Feed = (props) => {
   return (
     <div className="feed-view-cta">
       <div className="main-cta-list">
-        <h6 className="post_author_text"> {props.author} </h6>
-        <h6>
-          {moment(props.created_at)
-            .zone(+480)
-            .format("MMMM D YYYY, h:mm a")}
-        </h6>
-        <p className="post_content_text">{props.content} </p>
+        <PostCard
+          key={props.post_id}
+          author={props.author}
+          created_at={props.created_at}
+          content={props.content}
+        />
       </div>
       <div className="post-comment-map">
         <h6>Comments</h6>

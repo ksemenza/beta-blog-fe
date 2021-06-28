@@ -9,14 +9,13 @@ const PostCard = (props) => {
 
   return (
     <div className="post-view-cta">
-      <p></p>
-      <h5>{props.author} </h5>
-      <p>
-        {" "}
-        <p> {moment(props.created_at).format("MMM D YYYY, h:mm a")} </p>
-      </p>
-      <h6>{props.title}</h6>
-      <p> {props.content} </p>
+      <h6 className="post_author_text"> {props.author} </h6>
+      <h6>
+        {moment(props.created_at)
+          .zone(+480)
+          .format("MMMM D YYYY, h:mm a")}
+      </h6>
+      <p className="post_content_text">{props.content} </p>
     </div>
   );
 };
