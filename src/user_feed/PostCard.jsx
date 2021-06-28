@@ -14,18 +14,36 @@ const PostCard = (props) => {
 
   const history = useHistory();
 
+  console.log(props)
+
   const [postSelected, setPostSelected] = useState({
     id: props.post_id,
-    created_at:"",
+    created_at: "",
     updated_at: "",
     title: "",
     content: "",
     topic: "",
   });
 
+  const handleClickEdit = () => {
+    setPostEditing(!postEditing);
+  }
+
 
   return (
     <div className="post-view-cta">
+      <button onClick={handleClickEdit}>
+        {!postEditing ? "Edit" : "Cancel"}
+      </button>
+      {postEditing ? (
+        <PostEdit
+          post_id={props.post_id}
+          author={props.author}
+          content={props.content}
+
+        />
+      ): (
+               <div>
       <div className='post-name-date-wrap'>
       <p className="post_author_text"> {props.author} </p>
       <p>
@@ -34,7 +52,12 @@ const PostCard = (props) => {
           .format("MMMM D YYYY, h:mm a")}
         </p>
         </div>
-      <h6 className='post-view-content'> {props.content} </h6>
+        <h6 className='post-view-content'> {props.content} </h6>
+        </div>
+          
+      )
+      }
+ 
     </div>
 
   );

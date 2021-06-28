@@ -64,7 +64,7 @@ const Feed = (props) => {
     <div className="feed-view-cta">
       <div className="main-cta-list">
         <PostCard
-          key={props.post_id}
+          post_id={props.post_id}
           author={props.author}
           created_at={props.created_at}
           content={props.content}
