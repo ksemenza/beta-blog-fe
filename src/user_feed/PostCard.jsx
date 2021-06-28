@@ -34,7 +34,7 @@ const PostCard = (props) => {
           .format("MMMM D YYYY, h:mm a")}
         </p>
         </div>
-      <p className='post-view-content'> {props.content} </p>
+      <h6 className='post-view-content'> {props.content} </h6>
     </div>
 
   );

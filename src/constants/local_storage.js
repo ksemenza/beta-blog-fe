@@ -4,6 +4,7 @@ export const USERNAME = localStorage.getItem("username");
 export const F_NAME = localStorage.getItem("first_name");
 export const L_NAME = localStorage.getItem("last_name");
 export const EMAIL = localStorage.getItem("email");
+export const FULL_NAME = localStorage.getItem("full_name")
 
 // Post's Values
 export const POST_ID = localStorage.getItem("post_Id");

@@ -18,6 +18,9 @@ const Feed = (props) => {
   const [postID, setPostID] = useState(props.post_id);
   const [activeUsername, setActiveUsername] = useState([]);
 
+    const [commentAdd, setCommentAdd] = useState(false);
+
+
     const [postSelected, setPostSelected] = useState({
       id: "",
       created_at: "",
@@ -37,6 +40,10 @@ const Feed = (props) => {
     history.push(`/homepage`);
   };
   
+  const handleClickCommitBtn = () => {
+    setCommentAdd(!commentAdd);
+  }
+
   console.log(props)
   
 
@@ -63,8 +70,8 @@ const Feed = (props) => {
           content={props.content}
         />
         <div className="post-comment-map">
-          {/* <h6>Comments</h6> */}
           <CommentAdd post_id={props.post_id} />
+          <h6>Comments</h6>
           {postsComment.map((comments) => (
             <div className="comment-card-list-cta">
               <CommentCard

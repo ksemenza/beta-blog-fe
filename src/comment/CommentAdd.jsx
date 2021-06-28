@@ -4,16 +4,16 @@ import { useHistory } from "react-router-dom";
 import { addComment } from "../user_state/comment-action";
 import { connect } from "react-redux";
 import { COMMENT_URL } from "../constants/endpoints";
-import { USERNAME } from '../constants/local_storage'
+import { USERNAME, FULL_NAME } from '../constants/local_storage'
 import '../assets/css/comment.css'
 
 const CommentAdd = (props) => {
 
-  console.log(props.post_id)
+  console.log(FULL_NAME)
 
   const history = useHistory();
   const [newComment, setNewComment] = useState({
-    author: USERNAME,
+    author: FULL_NAME,
     comment: "",
     post_id: props.post_id
   });
