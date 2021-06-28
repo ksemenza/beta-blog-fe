@@ -15,7 +15,7 @@ const PostEdit = (props) => {
     title: props.title,
     content: props.content,
     topic: props.topic,
-    // user_id:USER_ID,
+    user_id:props.user_id,
   });
 
   // Handle add new post submit
@@ -45,9 +45,9 @@ const PostEdit = (props) => {
             type="textarea"
             name="content"
             id="content"
-            placeholder={props.content}
+            placeholder={props.content.conn}
             onChange={onEditChange}
-            value={props.content}
+            value={selectedPost.content}
           />
         </div>
 

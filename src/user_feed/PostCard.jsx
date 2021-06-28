@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory, NavLink } from "react-router-dom";
 import { editPost, deletePost } from "../user_state/post-action";
-import { HOME_PAGE } from '../constants/endpoints'
+import { POST_URL } from '../constants/endpoints'
+import { USER_ID } from '../constants/local_storage'
 import moment from "moment";
 import axiosAuth from "../api/axiosAuth";
 import PostEdit from './PostEdit'
@@ -11,23 +12,44 @@ const PostCard = (props) => {
 
   const [postId, setPostId] = useState("");
   const [postEditing, setPostEditing] = useState(false);
+  const userID = localStorage.getItem("user_id")
 
   const history = useHistory();
 
   console.log(props)
 
   const [postSelected, setPostSelected] = useState({
-    id: props.post_id,
+    post_id: props.post_id,
     created_at: "",
     updated_at: "",
     title: "",
     content: "",
     topic: "",
+    user_id:userID
   });
+
+  console.log(postSelected.user_id)
+
+    useEffect(() => {
+      axiosAuth()
+        .get(`post/${postSelected.post_id}`)
+        .then((res) => {
+          console.log(res.data.id);
+          setPostSelected(res.data);
+          localStorage.setItem("post_id", res.data.id);
+          setPostId(res.data.id);
+        })
+        .catch((err) => {
+          console.log(`Get User Post Error`, err);
+        });
+    }, []);
+
 
   const handleClickEdit = () => {
     setPostEditing(!postEditing);
   }
+
+  console.log(postSelected)
 
 
   return (
@@ -37,15 +59,20 @@ const PostCard = (props) => {
       </button>
       {postEditing ? (
         <PostEdit
-          post_id={props.post_id}
-          author={props.author}
-          content={props.content}
+          post_id={postId}
+          content={postSelected}
+          user_id={postSelected.user_id}
 
         />
       ): (
                <div>
       <div className='post-name-date-wrap'>
       <p className="post_author_text"> {props.author} </p>
+      <p>
+        {moment(props.created_at)
+          .zone(+480)
+          .format("MMMM D YYYY, h:mm a")}
+        </p>
       <p>
         {moment(props.created_at)
           .zone(+480)
