@@ -6,23 +6,23 @@ import { connect } from "react-redux";
 const PostEdit = (props) => {
   let history = useHistory();
 
-  console.log(props);
+  console.log(props.content.content);
 
   const [selectedPost, setSelectedPost] = useState({
     
     id: props.post_id,
     updated_at: Date(),
-    title: props.title,
-    content: props.content,
-    topic: props.topic,
-    // user_id:USER_ID,
+    title: props.content.title,
+    content: props.content.content,
+    topic: props.content.topic,
+    user_id:props.user_id,
   });
 
   // Handle add new post submit
   const submitEditPost = (e) => {
     e.preventDefault();
     props.editPost(selectedPost);
-    // props.toggleEdit();
+    props.toggleEdit();
     setTimeout(() => {
       e.target.reset();
     }, 1500);
@@ -30,7 +30,6 @@ const PostEdit = (props) => {
 
   const onEditChange = (e) => {
     setSelectedPost({ ...selectedPost, [e.target.name]: e.target.value });
-    console.log(selectedPost);
   };
 
   return (
@@ -45,9 +44,9 @@ const PostEdit = (props) => {
             type="textarea"
             name="content"
             id="content"
-            placeholder={props.content}
+            placeholder={props.content.content}
             onChange={onEditChange}
-            value={props.content}
+            value={selectedPost.content}
           />
         </div>
 
