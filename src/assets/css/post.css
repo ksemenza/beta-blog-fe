@@ -4,3 +4,8 @@
 .post-link {
   margin: 1.5rem;
 }
+
+
+.post-name-date-wrap {
+  display: flex;
+}

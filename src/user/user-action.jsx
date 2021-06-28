@@ -50,10 +50,11 @@ export const loginUser = (user, history) => (dispatch) => {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user_id", res.data.user.id);
       localStorage.setItem("first_name", res.data.user.first_name);
-      localStorage.setItem("lname", res.data.user.last_name);
+      localStorage.setItem("last_name", res.data.user.last_name);
       localStorage.setItem("username", res.data.user.username);
       localStorage.setItem("email", res.data.user.email);
       localStorage.setItem("password", res.data.user.password);
+      localStorage.setItem("full_name", `${res.data.user.first_name} ${res.data.user.last_name}`)
 
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
       history.push(HOME_PAGE);

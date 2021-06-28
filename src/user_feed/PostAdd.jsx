@@ -9,10 +9,15 @@ const PostAdd = (props) => {
 
 
   const USER_ID = localStorage.getItem("user_id");
-  const USERNAME = localStorage.getItem("username");
+  const first_name = localStorage.getItem("first_name");
+  const last_name = localStorage.getItem("last_name")
+
+  const full_name = `${first_name} ${last_name}`
+
+  console.log(full_name)
 
   const [newPost, setNewPost] = useState({
-    author: USERNAME,
+    author: full_name,
     title: "",
     content: "",
     topic: "",

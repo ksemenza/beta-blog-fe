@@ -1,7 +1,18 @@
 .comment-card-list-cta {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-content: center;
     margin: 0.5rem;
 }
 
+.post-name-date-wrap {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  border-bottom:2px solid black ;
+}
+
+.post-view-content {
+    padding-top: 1.5rem;
+    font-size: 1.8rem;
+}

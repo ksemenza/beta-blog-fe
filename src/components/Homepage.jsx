@@ -16,6 +16,8 @@ const Homepage = (props) => {
   const [lastName, setLastName] = useState('')
   const [fullName, setFullName] = useState('')
  
+  console.log(props.match.path)
+
   const user_id = localStorage.getItem('user_id')
   const first_name = localStorage.getItem('first_name')
   const last_name = localStorage.getItem('last_name')

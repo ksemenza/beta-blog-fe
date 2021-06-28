@@ -1,31 +1,39 @@
 .comment-card-cta {
   display: flex;
-  flex-direction: column-reverse;
-  border: 1px dashed green;
-  padding: 2.5rem;
-  width: 40rem;
+  flex-direction: column;
+  border: 2px groove lightblue;
+  padding: 1rem;
+  width: 60rem;
   margin: 0 auto;
 }
 
 
 .comment-add-form-cta {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .comment-add-form {
   display: flex;
-  margin: 2rem auto;
+  margin: 0 auto;
+  padding-top: 4.5rem;
   
 }
 
 .comment-textarea { 
-  width: 60rem;
-  padding: 2rem;
+  width: 45rem;
+  /* padding: 1rem; */
   display: flex;
-  height: 2rem;
-  border: 1px dashed green;
+  height: 1.5rem;
+  border: 2px groove lightblue;
+    padding-bottom: 2.5rem;
 
 }
 
+.comment-card-top-wrap {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightblue;
+}

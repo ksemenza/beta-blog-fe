@@ -10,14 +10,16 @@ const CommentCard = (props) => {
 
   return (
     <div className="comment-card-cta">
-      <p> {props.post_id} </p>
-      <h6>
+      
+      <div className="comment-card-top-wrap">
+      <p> {props.author}</p>
+      <p>
         {moment(props.created_at)
           .zone(+480)
           .format("MMMM D YYYY, h:mm a")}
-      </h6>
-      <p> {props.author}</p>
-      <p> {props.comment} </p>
+      </p>
+      </div>
+      <p className="comment-card-comment"> {props.comment} </p>
     </div>
   );
 };
