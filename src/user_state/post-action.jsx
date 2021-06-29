@@ -15,8 +15,6 @@ export const POST_FAIL = "POST_FAIL";
 // const USER_ID = localStorage.getItem('user_id');
 const POST_ID = localStorage.getItem("post_id");
 
-const URL_BE = process.env.BE_URL || LOCAL_URL;
-
 //GET Admin Post All
 export const getPostsAll = (posts, history) => (dispatch) => {
   dispatch({ type: POST_REQ });

@@ -2,6 +2,7 @@ import axios from "axios";
 import axiosAuth from "../api/axiosAuth";
 import {
   LOCAL_URL,
+  DEPLOYED_URL,
   USER_URL,
   COMMENT_URL,
   DETAILS_URL,
@@ -12,7 +13,6 @@ export const COMMENT_REQ = "COMMENT_REQ";
 export const COMMENT_SUC = "COMMENT_SUC";
 export const COMMENT_FAIL = "COMMENT_FAIL";
 
-const URL_BE = process.env.BE_URL || LOCAL_URL;
 
 //GET Admin Comment All
 export const getCommentsAll = (comments, history) => (dispatch) => {
