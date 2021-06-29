@@ -84,7 +84,7 @@ const Feed = (props) => {
               content={props.content}
             />
             <div className="post-comment-map">
-              <CommentAdd post_id={props.post_id} />
+              <CommentAdd post_id={postSelected.post_id} comment={postSelected.comment} author={postSelected.author} />
               <h6>Comments</h6>
               {postsComment.map((comments) => (
                 <div className="comment-card-list-cta">
