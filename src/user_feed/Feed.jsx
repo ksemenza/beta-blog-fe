@@ -10,6 +10,7 @@ import '../assets/css/feed.css'
 
 import { COMMENT_URL, POST_URL } from "../constants/endpoints";
 import PostCard from "./PostCard";
+import PostEdit from "./PostEdit";
 
 const Feed = (props) => {
 
@@ -17,32 +18,33 @@ const Feed = (props) => {
   const [postsComment, setPostsComment] = useState([]);
   const [postID, setPostID] = useState(props.post_id);
   const [activeUsername, setActiveUsername] = useState([]);
-
+    const [postEditing, setPostEditing] = useState(false);
     const [commentAdd, setCommentAdd] = useState(false);
 
 
-    const [postSelected, setPostSelected] = useState({
-      id: "",
-      created_at: "",
-      updated_at: "",
-      title: "",
-      content: "",
-      topic: "",
-    });
-  
-  
+
+  const [postSelected, setPostSelected] = useState({
+    post_id: props.post_id,
+    created_at: "",
+    updated_at: "",
+    title: "",
+    content: "",
+    topic: "",
+    user_id:props.user_id
+  })
+
   const onClickEdit = () => {
     setPostEditing(!postEditing);
   };
 
-  const onClickDelete = () => {
-    props.deletePost(postSelected);
-    history.push(`/homepage`);
-  };
   
   const handleClickCommitBtn = () => {
     setCommentAdd(!commentAdd);
   }
+
+    const handleClickEdit = () => {
+      setPostEditing(!postEditing);
+    };
 
   console.log(props)
   
@@ -63,28 +65,42 @@ const Feed = (props) => {
   return (
     <div className="feed-view-cta">
       <div className="main-cta-list">
-        <PostCard
-          post_id={props.post_id}
-          author={props.author}
-          created_at={props.created_at}
-          content={props.content}
-        />
-        <div className="post-comment-map">
-          <CommentAdd post_id={props.post_id} />
-          <h6>Comments</h6>
-          {postsComment.map((comments) => (
-            <div className="comment-card-list-cta">
-              <CommentCard
-                comment_id={comments.id}
-                author={comments.author}
-                comment={comments.comment}
-                post_id={comments.post_id}
-                created_at={comments.created_at}
-                updated_at={comments.updated_at}
-              />
+        <button onClick={handleClickEdit}>
+          {" "}
+          {!postEditing ? "Edit" : "Cancel"}{" "}
+        </button>
+        {postEditing ? (
+          <PostEdit
+            post_id={props.post_id}
+            content={props.content}
+            user_id={props.user_id}
+          />
+        ) : (
+          <div>
+            <PostCard
+              post_id={props.post_id}
+              author={props.author}
+              created_at={props.created_at}
+              content={props.content}
+            />
+            <div className="post-comment-map">
+              <CommentAdd post_id={props.post_id} />
+              <h6>Comments</h6>
+              {postsComment.map((comments) => (
+                <div className="comment-card-list-cta">
+                  <CommentCard
+                    comment_id={comments.id}
+                    author={comments.author}
+                    comment={comments.comment}
+                    post_id={comments.post_id}
+                    created_at={comments.created_at}
+                    updated_at={comments.updated_at}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
