@@ -81,6 +81,7 @@ const Feed = (props) => {
               post_id={props.post_id}
               author={props.author}
               created_at={props.created_at}
+              updated_at={props.updated_at}
               content={props.content}
             />
             <div className="post-comment-map">

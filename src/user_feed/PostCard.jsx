@@ -55,7 +55,7 @@ const PostCard = (props) => {
       <div className='post-name-date-wrap'>
       <p className="post_author_text"> {props.author} </p>
       <p>
-        {moment(props.created_at)
+        {moment(props.updated_at)
           .zone(+480)
           .format("MMMM D YYYY, h:mm a")}
         </p>
