@@ -5,6 +5,7 @@ import {
   USER_URL,
   POST_URL,
   DETAILS_URL,
+  DEPLOYED_URL,
 } from "../constants/endpoints";
 
 export const POST_REQ = "POST_REQ";
@@ -14,13 +15,11 @@ export const POST_FAIL = "POST_FAIL";
 // const USER_ID = localStorage.getItem('user_id');
 const POST_ID = localStorage.getItem("post_id");
 
-const URL_BE = process.env.BE_URL || LOCAL_URL;
-
 //GET Admin Post All
 export const getPostsAll = (posts, history) => (dispatch) => {
   dispatch({ type: POST_REQ });
   axiosAuth()
-    .get(`${URL_BE}${POST_URL}`, posts)
+    .get(`${DEPLOYED_URL}${POST_URL}`, posts)
     .then((res) => {
       dispatch({ type: POST_SUC, payload: res.data });
     })
