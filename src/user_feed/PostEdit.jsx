@@ -42,9 +42,12 @@ const PostEdit = (props) => {
 
   return (
     <div className="post-edit-cta">
+      <div className="post-edit-header">
+        <h6> {selectedPost.updated_at} </h6>
+        <p> {selectedPost.content} </p>
+      </div>
       <form onSubmit={submitEditPost}>
         <div className="input-label-wrap">
-          <label htmlFor="content">Content</label>
           <textarea
             required
             className="post-textarea"
