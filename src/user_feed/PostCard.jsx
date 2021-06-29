@@ -50,17 +50,7 @@ const PostCard = (props) => {
 
   return (
     <div className="post-view-cta">
-      <button onClick={handleClickEdit}>
-        {!postEditing ? "Edit" : "Cancel"}
-      </button>
-      {postEditing ? (
-        <PostEdit
-          post_id={postId}
-          content={postSelected.content}
-          user_id={postSelected.user_id}
-          history={history}
-        />
-      ): (
+
                <div>
       <div className='post-name-date-wrap'>
       <p className="post_author_text"> {props.author} </p>
@@ -77,9 +67,6 @@ const PostCard = (props) => {
         </div>
         <h6 className='post-view-content'> {props.content} </h6>
         </div>
-          
-      )
-      }
     </div>
 
   );

@@ -37,7 +37,7 @@ const PostEdit = (props) => {
         props.deletePost(selectedPost);
         setTimeout(() => {
               window.location.reload()
-            }, 500);
+            }, 200);
       };
 
   return (
