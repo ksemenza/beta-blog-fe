@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { axiosAuth } from "../api/axiosAuth";
 import { connect } from "react-redux";
-import { POST_URL, USER_URL, COMMENT_URL } from "../constants/endpoints";
+import {
+  POST_URL,
+  USER_URL,
+  COMMENT_URL,
+} from "../constants/endpoints";
 import "../assets/css/main-page.css";
 import Feed from "../user_feed/Feed";
 import PostAdd from "../user_feed/PostAdd";
