@@ -14,17 +14,16 @@ const CommentAdd = (props) => {
   const history = useHistory();
   const [newComment, setNewComment] = useState({
     author: FULL_NAME,
-    comment: "",
+    comment: props.comment,
     post_id: props.post_id
   });
 
-  console.log(props.post_id)
-
   // Handle add new comment submit
   const handleSubmitComment = (e) => {
+    e.preventDefault()
     props.addComment(newComment);
     setTimeout(() => {
-      e.target.reset();
+
     }, 1500);
   };
 
@@ -32,11 +31,9 @@ const CommentAdd = (props) => {
   const handleChangeComment = (e) => {
     e.preventDefault()
     setNewComment({ ...newComment, [e.target.name]: e.target.value })
-        setTimeout(() => {}, 1500);
   };
   
-  console.log(newComment)
-  return (
+    return (
     <div className="comment-add-cta">
       <div className="comment-add-form-cta">
         <form className="comment-add-form" onSubmit={handleSubmitComment}>
