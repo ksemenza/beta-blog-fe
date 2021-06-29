@@ -28,8 +28,6 @@ const PostCard = (props) => {
     user_id:userID
   });
 
-  console.log(postSelected.user_id)
-
     useEffect(() => {
       axiosAuth()
         .get(`post/${postSelected.post_id}`)
@@ -49,8 +47,6 @@ const PostCard = (props) => {
     setPostEditing(!postEditing);
   }
 
-  console.log(postSelected)
-
 
   return (
     <div className="post-view-cta">
@@ -60,9 +56,9 @@ const PostCard = (props) => {
       {postEditing ? (
         <PostEdit
           post_id={postId}
-          content={postSelected}
+          content={postSelected.content}
           user_id={postSelected.user_id}
-
+          history={history}
         />
       ): (
                <div>
@@ -84,7 +80,6 @@ const PostCard = (props) => {
           
       )
       }
- 
     </div>
 
   );
