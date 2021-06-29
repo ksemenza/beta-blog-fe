@@ -5,6 +5,7 @@ import {
   USER_URL,
   POST_URL,
   DETAILS_URL,
+  DEPLOYED_URL,
 } from "../constants/endpoints";
 
 export const POST_REQ = "POST_REQ";
@@ -20,7 +21,7 @@ const URL_BE = process.env.BE_URL || LOCAL_URL;
 export const getPostsAll = (posts, history) => (dispatch) => {
   dispatch({ type: POST_REQ });
   axiosAuth()
-    .get(`${URL_BE}${POST_URL}`, posts)
+    .get(`${DEPLOYED_URL}${POST_URL}`, posts)
     .then((res) => {
       dispatch({ type: POST_SUC, payload: res.data });
     })

@@ -18,7 +18,7 @@ const URL_BE = process.env.BE_URL || LOCAL_URL;
 export const getCommentsAll = (comments, history) => (dispatch) => {
   dispatch({ type: COMMENT_REQ });
   axiosAuth()
-    .get(`${URL_BE}${COMMENT_URL}`, comments)
+    .get(`${DEPLOYED_URL}${COMMENT_URL}`, comments)
     .then((res) => {
       dispatch({ type: COMMENT_SUC, payload: res.data });
     })
