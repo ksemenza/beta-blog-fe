@@ -16,29 +16,6 @@ const initialState = {
   last_name: "",
   username: "",
   email: "",
-  posts: [
-    {
-      id: "",
-      title: "",
-      content: "",
-      topic: "",
-      user_id: "",
-      comments: [
-        {
-          id: "",
-          comment: "",
-          post_id: "",
-          notifications: [
-            {
-              id: "",
-              reaction: "",
-              comment_id: "",
-            },
-          ],
-        },
-      ],
-    },
-  ],
   isLoggedIn: false,
   isRegistered: false,
   isLoggingOut: false,
